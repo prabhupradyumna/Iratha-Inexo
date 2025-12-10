@@ -80,7 +80,6 @@ status
 /lib/
 /man/
 /share/
-/src/
 
 # odoo filestore
 odoo/filestore
