@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+    <data>
+        <menuitem name="Garage Management" id="menu_dev_repair_menu" sequence="20"/>
+        
+        <menuitem name="Job Card" id="menu_dev_machine_repair" 
+                  parent="dev_garage_management.menu_dev_repair_menu" sequence="10"/>
+        
+        
+        <menuitem name="Vehicles" id="menu_dev_repair_machine" 
+                  parent="dev_garage_management.menu_dev_repair_menu" sequence="50"/>
+
+        <menuitem name="Reporting" id="menu_dev_garage_reporting"
+                  parent="dev_garage_management.menu_dev_repair_menu" sequence="70"/>
+        
+        <menuitem name="Configuration" id="menu_dev_repair_configration"
+                  parent="dev_garage_management.menu_dev_repair_menu" 
+                  groups="dev_garage_management.group_machine_manager" sequence="100"/>
+
+        <menuitem name="Inspection" id="menu_garage_inspection_configure"
+                  parent="dev_garage_management.menu_dev_repair_configration"/>
+    </data>
+</odoo>

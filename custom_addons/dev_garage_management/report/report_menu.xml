@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+
+    <record id="paperformat_dev_machine_repair_request" model="report.paperformat">
+            <field name="name">A4 Repair Request</field>
+            <field name="default" eval="True" />
+            <field name="format">custom</field>
+            <field name="page_height">297</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">32</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">40</field>
+            <field name="dpi">90</field>
+        </record>
+        
+        
+    <record id="menu_machine_repair_request" model="ir.actions.report">
+        <field name="name">Job Card</field>
+        <field name="model">dev.repair.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dev_garage_management.machine_repair_report</field>
+        <field name="report_file">dev_garage_management.machine_repair_report</field>
+        <field name="binding_model_id" ref="dev_garage_management.model_dev_repair_request"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_dev_machine_repair_request"/>
+        <field name="print_report_name">'%s - Job Card' % (object.name)</field>
+    </record>
+
+    <record id="menu_machine_repair_request_label_report" model="ir.actions.report">
+        <field name="name">Card Label</field>
+        <field name="model">dev.repair.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dev_garage_management.machine_repair_card_report</field>
+        <field name="report_file">dev_garage_management.machine_repair_card_report</field>
+        <field name="binding_model_id" ref="dev_garage_management.model_dev_repair_request"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_dev_machine_repair_request"/>
+    </record>
+
+    <record id="menu_instruction_checklist_report" model="ir.actions.report">
+        <field name="name">Inspection Checklist</field>
+        <field name="model">dev.repair.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dev_garage_management.instruction_checklist_report_template</field>
+        <field name="report_file">dev_garage_management.instruction_checklist_report_template</field>
+        <field name="binding_model_id" ref="dev_garage_management.model_dev_repair_request"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_dev_machine_repair_request"/>
+    </record>
+
+    <record id="dev_job_card_history_report_menu" model="ir.actions.report">
+        <field name="name">Job Card History</field>
+        <field name="model">job.card.history</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dev_garage_management.job_card_history_report_template</field>
+        <field name="report_file">dev_garage_management.job_card_history_report_template</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="dev_product_sale_history_report_menu" model="ir.actions.report">
+        <field name="name">Product Sale History</field>
+        <field name="model">product.sale.history</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dev_garage_management.product_sale_report_template</field>
+        <field name="report_file">dev_garage_management.product_sale_report_template</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

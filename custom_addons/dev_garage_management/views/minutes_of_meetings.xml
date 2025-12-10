@@ -1,0 +1,98 @@
+<odoo>
+
+
+    <record id="view_calendar_meetings_inherit" model="ir.ui.view">
+        <field name="name">calendar.meetings.inherit</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+             <xpath expr="//div[@class='oe_button_box']" position="inside">
+            <button name="action_open_repair_request"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-car">
+                <field name="garage_req_count" widget="statinfo" string="Garage Request"/>
+            </button>
+        </xpath>
+        <xpath expr="//div[@class='oe_title mb-3']" position="before">
+                    <div class="oe_title" style="font-size: 22px;font-weight: bold;margin-bottom: 10px;">
+                        <field name="ref_name" readonly="1"/>
+                    </div>
+            </xpath>        
+            <xpath expr="//header" position="inside">
+<!--                <div class="d-flex justify-content-between align-items-center mb-3">-->
+                    <!-- Left side: Action Buttons -->
+<!--                    <div>-->
+                        <button name="action_confirm" string="Confirm" type="object" class="btn btn-primary"
+                                invisible="state != 'draft'"/>
+
+                        <button name="action_done" string="Mark Done" type="object" class="btn btn-secondary"
+                                invisible="state != 'confirm'"/>
+                                <button name="action_create_job_card" type="object" string="Create Request" class="oe_highlight" invisible="state != 'confirm'"/>
+
+
+                        <button name="action_cancel" string="Cancel" type="object" class="btn btn-danger"
+                                invisible="state in ['cancel', 'done']"/>
+
+                        <button name="action_reset_to_draft" string="Reset to Draft" type="object"
+                                class="btn btn-secondary"
+                                invisible="state != 'cancel'"/>
+                                
+			<field name="state" widget="statusbar" statusbar_visible="draft,confirm,done,cancel"/>                                
+<!--                    </div>-->
+
+                    <!-- Right side: Statusbar -->
+<!--                    <div>-->
+<!--                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done,cancel"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </xpath>
+            <xpath expr="//notebook" position="before">
+            
+                <div>
+                    <h4></h4>
+                    <group >
+                    <group >
+                    </group >
+                    <group string="Session Details">
+                        <field name="customer_type" readonly="state != 'draft'"/>
+                            <field name="customer_id" invisible="customer_type=='new'" required="customer_type=='existing'"
+                                   readonly="state != 'draft'"/>
+						 
+                            <field name="customer_nm" readonly="state != 'draft'"/>
+                        <field name="booking_date" invisible="1"/>
+                        <field name="product_id" required="1"/>
+                        <field name="machine_name" required="1"/>
+                        <field name="demage" required="1"/>
+                        <field name="repair_issue" required="1"/>
+                        <field name="repair_reason" required="1"/>
+                        <field name="service_id" required="1"/>
+                        <field name="service_type_id" required="1"/>
+                        <field name="fess_fees"/>
+                        <field name="time_slot_ids" widget="many2many_tags" invisible="1"/>
+                        <field name="company_id"/>
+                        <field name="email"/>
+                        <field name="mobile_number"/>
+                    </group>
+                    </group >
+                </div>
+            </xpath>
+        </field>
+    </record>
+<!-- tree view -->
+
+        <record id="view_calendar_event_tree_inherit" model="ir.ui.view">
+    <field name="name">calendar.event.tree.inherit.name</field>
+    <field name="model">calendar.event</field>
+    <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="before">
+            <field name="ref_name" string="Name"/>
+        </xpath>
+    </field>
+</record>
+
+
+    <menuitem id="menu_meetings" name="Appointment" parent="menu_dev_repair_menu" action="calendar.action_calendar_event"
+              sequence="1"/>
+</odoo>

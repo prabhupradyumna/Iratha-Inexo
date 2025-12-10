@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="garageAnalysisDashboard" xml:space="preserve">
+	<t t-name="garageAnalysisDashboard">
+		<div style=" overflow-y:scroll; height:100%; background-color:#fbf8fa">
+			<div class="mx-5">
+				<div class="row gx-0 mt-3">
+					<div class="col-12 d-flex justify-content-end">
+						<button id="downloadBtn" t-on-click="(e) => this.downloadReport(e)" class="btn btn-primary p-2">
+							<i class="fa fa-file-pdf-o p-1" aria-hidden="true" />
+							Print
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mx-5 " id="dashboard">
+				<t t-call="garage_analysis_filters" />
+				<t t-call="garage_analysis_counters" />
+				<t t-call="garage_analysis_charts" />
+				<t t-call="garage_tables"/>
+			</div>
+		</div>
+	</t>
+	<t t-name="garage_analysis_filters">
+		<div class="card mt-4 filters">
+			<div class="row p-2 m-2 gx-0 gy-2">
+				<div class="col-lg-1 d-flex my-auto justify-content-center">
+					<img t-att-src="'data:image/png;base64,' + state.user_img.value" class="css-shadow" />
+				</div>
+				<div class="col-lg-4 pl-1 my-auto">
+					<h2>
+						<t t-esc="greetings" />
+						,
+						<t t-esc="state.user_name.value" />
+						.
+					</h2>
+					<h4>
+						Welcome to your Garage Dashboard.
+					</h4>
+				</div>
+				<div class="col-lg-7">
+					<div class="row gy-2">
+						<div class="col-lg-3 m-0">
+							<label for="user_selection" class="form-label fw-bolder">
+								User
+							</label>
+							<select class="form-select" id="user_selection" t-on-change="(ev) => this._onchangeGrageFilter(ev)">
+								<option value="all">
+									All User
+								</option>
+							</select>
+						</div>
+						<div class="col-lg-3 m-0">
+							<label for="customer_selection" class="form-label fw-bolder">
+								Customer
+							</label>
+							<select class="form-select" id="customer_selection" t-on-change="(ev) => this._onchangeGrageFilter(ev)">
+								<option value="all">
+									All Customer
+								</option>
+							</select>
+						</div>
+						
+
+						 <div class="col-lg-3 m-0">
+                             <label for="request_date" class="form-label fw-bolder">Date</label>
+                            <select class="form-select" id="request_date"
+                                    t-on-change="(ev) => this._onchangeGrageFilter(ev)">
+                                <option value="0">Today</option>
+                                <option value="7">Last 7 Days</option>
+                                <option value="28">Last 28 Days</option>
+                                <option value="90">Last 90 Days</option>
+                                <option value="365">Last 365 Days</option>
+                                <option value="all">Lifetime</option>
+                            </select>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+	<t t-name="garage_analysis_counters">
+		<div class="mt-5 mb-5">
+			<div class="row text-center gy-2">
+				<div class="col-lg-2">
+					<div class="row mt-2">
+						<div class="col-12">
+							<div class="card box" id="total_lead_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total  Driver Of Fleet Rental Mangement">
+								<div class="card-body box-body">
+									<h1 id="total_lead_ids">
+										<t t-esc="this.state.total_lead_ids.length" />
+									</h1>
+									<h5>
+										Total Lead
+									</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="row mt-2">
+						<div class="col-12">
+							<div class="card box" id="total_rfq_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total  Driver Of Fleet Rental Mangement">
+								<div class="card-body box-body">
+									<h1 id="total_rfq_ids">
+										<t t-esc="this.state.total_rfq_list.length" />
+									</h1>
+									<h5>
+										Total RFQ
+									</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="row mt-2">
+						<div class="col-12">
+							<div class="card box" id="total_work_order_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total  Upcoming Slip Of Fleet Rental Mangement">
+								<div class="card-body box-body">
+									<h1 id="total_work_order_id">
+										<t t-esc="this.state.total_work_order_list.length" />
+									</h1>
+									<h5>
+										Total Work Order
+									</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="row mt-2">
+						<div class="col-12">
+							<div class="card box" id="total_sale_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total  Upcoming Slip Of Fleet Rental Mangement">
+								<div class="card-body box-body">
+									<h1 id="total_sale_ids">
+										<t t-esc="this.state.total_sale_list.length" />
+									</h1>
+									<h5>
+										Total Sales
+									</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="row mt-2">
+						<div class="col-12">
+							<div class="card box" id="total_invoice_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total  Upcoming Slip Of Fleet Rental Mangement">
+								<div class="card-body box-body">
+									<h1 id="total_invoice_id">
+										<t t-esc="this.state.total_invoice_list.length" />
+									</h1>
+									<h5>
+										Paid Invoice
+									</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="row mt-2">
+						<div class="col-12">
+							<div class="card box" id="total_due_invoice_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total  Upcoming Slip Of Fleet Rental Mangement">
+								<div class="card-body box-body">
+									<h1 id="total_due_invoice_id">
+										<t t-esc="this.state.total_due_invoice_list.length" />
+									</h1>
+									<h5>
+										Total Due Invoice
+									</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row text-center gy-2 mt-2 mb-2	">
+				<div class="col-lg-2">
+					<div class="row mt-2">
+						<div class="col-12">
+							<div class="card box" id="total_won_lead_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total Won Lead">
+								<div class="card-body box-body">
+									<h1 id="total_won_lead_ids">
+										<t t-esc="this.state.total_won_lead_ids.length" />
+									</h1>
+									<h5>
+										Total Won Lead
+									</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="card box" id="total_request_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total Lead Of Fleet Rental Mangement">
+						<div class="card-body box-body">
+							<h1 id="total_request_ids">
+								<t t-esc="this.state.total_request.length" />
+							</h1>
+							<h5>
+								Total Request
+							</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="card box" id="total_draft_job_card_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total Pipeline Of Fleet Rental Mangement">
+						<div class="card-body box-body">
+							<h1 id="total_draft_job_card_ids">
+								<t t-esc="this.state.draft_job_card_list.length" />
+							</h1>
+							<h5>
+								Draft Job Card
+							</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="card box" id="total_confirm_job_card_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total Pipeline Of Fleet Rental Mangement">
+						<div class="card-body box-body">
+							<h1 id="total_confirm_job_card_ids">
+								<t t-esc="this.state.confirm_job_card_list.length" />
+							</h1>
+							<h5>
+								Confirm Job Card
+							</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="card box" id="total_in_process_job_card_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total Pipeline Of Fleet Rental Mangement">
+						<div class="card-body box-body">
+							<h1 id="total_in_process_job_card_ids">
+								<t t-esc="this.state.in_process_job_card_list.length" />
+							</h1>
+							<h5>
+								In Process Job Card
+							</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="card box" id="total_diagnosis_id" t-on-click="(e) => this.action_all_garage_counter(e)" data-bs-toggle="tooltip" title="Total Pipeline Of Fleet Rental Mangement">
+						<div class="card-body box-body">
+							<h1 id="total_diagnosis_ids">
+								<t t-esc="this.state.total_diagnosis_list.length" />
+							</h1>
+							<h5>
+								Total Diagnosis
+							</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+	<t t-name="garage_analysis_charts">
+		<div class="mt-5 col-12">
+			<div class="row gy-2 d-flex align-items-stretch">
+				<div class="col-lg-6 col-md-5 col-6">
+					<div class="card table-card h-100" style="overflow-x:clip;">
+						<div class="card-header">
+							<div class="row">
+								<div class="col-6">
+									<label for="job_card_team_chart_selection" class="form-label fw-bolder">
+										Chart Type
+									</label>
+									<select id="job_card_team_chart_selection" class="form-select form-control pull-left" t-on-change="(ev) => this._onchangeJobCardByTeamChart(ev)">
+										<option value="bar">
+											Bar
+										</option>
+										<option value="pie">
+											Pie
+										</option>
+										<option value="line">
+											Line
+										</option>
+										<option value="doughnut">
+											Doughnut
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="card-title text-center p-3" style="font-weight:600; font-size:20px;">
+							<div class="row">
+								<div class="col-2">
+								</div>
+								<div class="col-8">
+									Job Card By Team
+									<sup>
+										<span style="margin-left: 5px; cursor: pointer;" title="Vehicle Fuel,service,Parking and Other Expense Chart">
+											?
+										</span>
+									</sup>
+								</div>
+								<div class="col-2">
+									<i class="fa fa-download" id="job_card_by_team_chart_data_btn" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)" />
+								</div>
+							</div>
+						</div>
+						<div class="card-body text-center">
+							<canvas id="job_card_by_team_chart_data" height="300" />
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-5 col-6">
+					<div class="card table-card h-100" style="overflow-x:clip;">
+						<div class="card-header">
+							<div class="row">
+								<div class="col-6">
+									<label for="job_card_by_state_chart_selection" class="form-label fw-bolder">
+										Chart Type
+									</label>
+									<select id="job_card_by_state_chart_selection" class="form-select form-control pull-left" t-on-change="(ev) => this._onchangeJobCardByStateChart(ev)">
+										<option value="pie">
+											Pie
+										</option>
+										<option value="line">
+											Line
+										</option>
+										<option value="doughnut">
+											Doughnut
+										</option>
+										<option value="bar">
+											Bar
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="card-title text-center p-3" style="font-weight:600; font-size:20px;">
+							<div class="row">
+								<div class="col-2">
+								</div>
+								<div class="col-8">
+									State Wise Job Card
+									<sup>
+										<span style="margin-left: 5px; cursor: pointer;" title="Vehicle Wise Revenue Chart">
+											?
+										</span>
+									</sup>
+								</div>
+								<div class="col-2">
+									<i class="fa fa-download" id="job_card_by_state_chart_data_btn" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)" />
+								</div>
+							</div>
+						</div>
+						<div class="card-body text-center">
+							<canvas id="job_card_by_state_chart_data" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-5 col-12">
+			<div class="row mt-3 gy-2">
+				<div class="col-lg-6 col-md-6 col-12 h-100">
+					<div class="card table-card" style="overflow-x:clip;">
+						<div class="card-header">
+							<div class="row">
+								<div class="col-6">
+									<label for="top_cust_rev_chart_selection" class="form-label fw-bolder">
+										Chart Type
+									</label>
+									<select id="top_cust_rev_chart_selection" class="form-select form-control pull-left" t-on-change="(ev) => this._onchangeTopCustomerRevenueChart(ev)">
+										<option value="line">
+											Line
+										</option>
+										<option value="doughnut">
+											Doughnut
+										</option>
+										<option value="pie">
+											Pie
+										</option>
+										<option value="bar">
+											Bar
+										</option>
+									</select>
+								</div>
+								<div class="col-6">
+									<label for="top_cust_rev_range_selection" class="form-label fw-bolder">
+										Range
+									</label>
+									<select class="form-select" id="top_cust_rev_range_selection" t-on-change="(ev) => this._onchangeTopCustomerRevenueChart(ev)">
+										<option value="5">
+											5
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="15">
+											15
+										</option>
+										<option value="20">
+											20
+										</option>
+										<option value="25">
+											25
+										</option>
+										<option value="30">
+											30
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+							<div class="row">
+								<div class="col-10">
+									Top Customer By Revenue
+									<sup>
+										<span style="margin-left: 5px; cursor: pointer;" title="Vehicle Wise Fuel Analysis Chart">
+											?
+										</span>
+									</sup>
+								</div>
+								<div class="col-2">
+									<i class="fa fa-download" style="cursor: pointer;" id="top_customer_revenue_chart_data_btn" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)">
+									</i>
+								</div>
+							</div>
+						</div>
+						<div class="card-body text-center">
+							<canvas id="top_customer_revenue_chart_data" class="bar-chart" />
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-12">
+					<div class="card table-card" style="overflow-x:clip;">
+						<div class="card-header">
+							<div class="row">
+								<div class="col-6">
+									<label for="top_due_invoice_select" class="form-label fw-bolder">
+										No. of Record
+									</label>
+									<select id="top_due_invoice_select" class="form-select form-control pull-left" t-on-change="(ev) => this._onchangeDueInvoiceChart(ev)">
+										<option value="3">
+											3
+										</option>
+										<option value="6">
+											6
+										</option>
+										<option value="9">
+											9
+										</option>
+										<option value="12">
+											12
+										</option>
+									</select>
+								</div>
+								<div class="col-6">
+									<label for="due_invoice_chart_selection" class="form-label fw-bolder">
+										Chart Type
+									</label>
+									<select id="due_invoice_chart_selection" class="form-select form-control pull-left" t-on-change="(ev) => this._onchangeDueInvoiceChart(ev)">
+										<option value="doughnut">
+											Doughnut
+										</option>
+										<option value="pie">
+											Pie
+										</option>
+										<option value="bar">
+											Bar
+										</option>
+										<option value="line">
+											Line
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+							<div class="row">
+								<div class="col-10">
+									Customer Wise Due Invoices Chart
+								</div>
+								<div class="col-2">
+									<i class="fa fa-download" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)" />
+								</div>
+							</div>
+						</div>
+						<div class="card-body text-center">
+							<canvas id="due_invoice_chart_data" class="bar-chart" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-5 col-12">
+			<div class="row mt-3 gy-2">
+				<div class="col-lg-6 col-md-6 col-12">
+					<div class="card table-card">
+						<div class="card-header">
+							<div class="row">
+								<div class="col-6 ">
+									<label for="top_product_selling_count" class="form-label fw-bolder">
+										No. Of Record
+									</label>
+									<select id="top_product_selling_count" class="form-select form-control pull-left" t-on-change="(ev) => this._onchangeTopSellingProductChart(ev)">
+										<option value="5">
+											5
+										</option>
+										<option value="10">
+											10
+										</option>
+										<option value="15">
+											15
+										</option>
+										<option value="20">
+											20
+										</option>
+									</select>
+								</div>
+								<div class="col-6 ">
+									<label for="product_chart_selection" class="form-label fw-bolder">
+										Chart Type
+									</label>
+									<select id="product_chart_selection" class="form-select form-control pull-left" t-on-change="(ev) => this._onchangeTopSellingProductChart(ev)">
+										<option value="bar">
+											Bar
+										</option>
+										<option value="line">
+											Line
+										</option>
+										<option value="pie">
+											Pie
+										</option>
+										<option value="doughnut">
+											Doughnut
+										</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+							<div class="row">
+								<div class="col-10">
+									Top Product Selling
+								</div>
+									<div class="col-2">
+									<i class="fa fa-download" id="top_selling_product_chart_data_btn" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)" />
+								</div>
+							</div>
+						</div>
+						<div class="card-body text-center">
+							<canvas id="top_selling_product_chart_data" class="bar-chart" />
+						</div>
+					</div>
+				</div>
+				 <div class="col-lg-6 col-md-6 col-12">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-6 ">
+                                    <label for="top_team_order_count"
+                                              class="form-label fw-bolder">No. Of Record</label>
+                                    <select id="top_team_order_count" class="form-select form-control pull-left"
+                                                t-on-change="(ev) => this._onchangeTopRepeatedCustChart(ev)">
+                                         <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>                               
+                                <div class="col-6 ">
+                                     <label for="customer_chart_selection"
+                                            class="form-label fw-bolder">Chart Type</label>
+                                    <select id="customer_chart_selection" class="form-select form-control pull-left"
+                                            t-on-change="(ev) => this._onchangeTopRepeatedCustChart(ev)">
+                                        <option value="pie">Pie</option>
+                                        <option value="bar">Bar</option>
+                                        <option value="line">Line</option>
+                                        <option value="doughnut">Doughnut</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+                            <div class="row">
+                             <div class="col-10">Top Repeated Customers</div>
+                                 <div class="col-2">
+									<i class="fa fa-download" style="cursor: pointer;" id="top_repeated_customer_chart_data_btn" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)">
+									</i>
+								</div>
+                             </div>
+                            </div>
+                        <div class="card-body text-center">
+                            <canvas id="top_repeated_customer_chart_data" class="bar-chart"/>
+                        </div>
+                </div>
+            </div>
+			</div>
+		</div>
+	</t>
+		<t t-name="garage_tables">
+		<div class="row mt-4 gy-2 md-5">
+			<div class="col-lg-12">
+				<div class="card table-card table-responsive">
+					<div class="card-header table-header row-12">
+						<div class="d-flex justify-content-between align-items-center w-100">
+							<span class="fw-bold ms-3">
+								Lead
+							</span>
+						</div>
+					</div>
+					<table id="all_garage_lead_lst" class="table table-hover">
+						<thead>
+							<tr>
+								<th>
+									Name
+								</th>
+								<th>
+									Partner Id
+								</th>
+								<th>
+									Email
+								</th>
+								<th>
+									Create Date
+								</th>
+								<th>
+									User
+								</th>
+								
+								
+								<th>
+								</th>
+								<th>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<t t-if="this.state.garage_lead_list_length">
+						<div class="d-flex align-items-center justify-content-center text-primary m-2">
+							<i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" id="lead_prev_button" t-on-click="(e) => this.lead_PrevPage(e)">
+							</i>
+							<span style="font-weight:600; font-size:15px; margin:0px 5px 0px 5px">
+								Page
+								<t t-esc="this.state.current_garage_lead_page" />
+								of
+								<t t-esc="Math.ceil(this.state.garage_lead_list_length/this.state.rowsPerPage)" />
+							</span>
+							<i class="fa fa-arrow-circle-right fa-2x" id="lead_next_button" aria-hidden="true" t-on-click="(e) => this.lead_NextPage(e)">
+							</i>
+						</div>
+					</t>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row mt-4 gy-2 md-5">
+			<div class="col-lg-6">
+				<div class="card table-card table-responsive">
+					<div class="card-header table-header row-12">
+						<div class="d-flex justify-content-between align-items-center w-100">
+							<span class="fw-bold ms-3">
+								Due Invoice
+							</span>
+						</div>
+					</div>
+					<table id="all_garage_due_invoice_lst" class="table table-hover">
+						<thead>
+							<tr>
+								<th>
+									Number
+								</th>
+								<th>
+									Customer Name
+								</th>
+								<th>
+									Invoice Date
+								</th>
+								<th>
+									Amount
+								</th>
+								<th>
+									Status
+								</th>
+								<th>
+								</th>
+								<th>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<t t-if="this.state.garage_due_invoice_list_length">
+						<div class="d-flex align-items-center justify-content-center text-primary m-2">
+							<i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" id="due_invoice_prev_button" t-on-click="(e) => this.due_invoice_PrevPage(e)">
+							</i>
+							<span style="font-weight:600; font-size:15px; margin:0px 5px 0px 5px">
+								Page
+								<t t-esc="this.state.current_garage_due_invoice_page" />
+								of
+								<t t-esc="Math.ceil(this.state.garage_due_invoice_list_length/this.state.rowsPerPage)" />
+							</span>
+							<i class="fa fa-arrow-circle-right fa-2x" id="due_invoice_next_button" aria-hidden="true" t-on-click="(e) => this.due_invoice_NextPage(e)">
+							</i>
+						</div>
+					</t>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="card table-card table-responsive">
+					<div class="card-header table-header row-12">
+						<div class="d-flex justify-content-between align-items-center w-100">
+							<span class="fw-bold ms-3">
+								Paid Invoice
+							</span>
+						</div>
+					</div>
+					<table id="all_garage_paid_invoice_lst" class="table table-hover">
+						<thead>
+							<tr>
+								<th>
+									Number
+								</th>
+								<th>
+									Customer Name
+								</th>
+								<th>
+									Invoice Date
+								</th>
+								<th>
+									Amount
+								</th>
+								<th>
+									Status
+								</th>
+								<th>
+								</th>
+								<th>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+					<t t-if="this.state.garage_paid_invoice_list_length">
+						<div class="d-flex align-items-center justify-content-center text-primary m-2">
+							<i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true" id="paid_invoice_prev_button" t-on-click="(e) => this.paid_invoice_PrevPage(e)">
+							</i>
+							<span style="font-weight:600; font-size:15px; margin:0px 5px 0px 5px">
+								Page
+								<t t-esc="this.state.current_garage_paid_invoice_page" />
+								of
+								<t t-esc="Math.ceil(this.state.garage_paid_invoice_list_length/this.state.rowsPerPage)" />
+							</span>
+							<i class="fa fa-arrow-circle-right fa-2x" id="paid_invoice_next_button" aria-hidden="true" t-on-click="(e) => this.paid_invoice_NextPage(e)">
+							</i>
+						</div>
+					</t>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-4">
+        </div>
+		</t>
+</templates>

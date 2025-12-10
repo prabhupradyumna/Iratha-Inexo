@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo noupdate="1">
+
+    <record id="Garage_service_1" model="dev.machine.service">
+        <field name="name">Periodic Maintenance Service (PMS)</field>
+        <field name="icon_image">pms.png</field>
+    </record>
+
+    <record id="Garage_service_2" model="dev.machine.service">
+        <field name="name">Car Inspection &amp; Diagnostics</field>
+        <field name="icon_image">inspection.png</field>
+    </record>
+
+    <record id="Garage_service_3" model="dev.machine.service">
+        <field name="name">General Repairs</field>
+        <field name="icon_image">general.png</field>
+    </record>
+
+    <record id="Garage_service_4" model="dev.machine.service">
+        <field name="name">Engine Repair &amp; Tuning</field>
+        <field name="icon_image">engine.png</field>
+    </record>
+
+    <record id="Garage_service_5" model="dev.machine.service">
+        <field name="name">Battery Check &amp; Replacement</field>
+        <field name="icon_image">battery.png</field>
+    </record>
+
+    <record id="Garage_service_6" model="dev.machine.service">
+        <field name="name">Cooling System Services</field>
+        <field name="icon_image">cooling.png</field>
+    </record>
+
+    <record id="Garage_service_7" model="dev.machine.service">
+        <field name="name">Clutch &amp; Transmission Repair</field>
+        <field name="icon_image">clutch.png</field>
+    </record>
+
+    <record id="Garage_service_8" model="dev.machine.service">
+        <field name="name">Brake Inspection &amp; Replacement</field>
+        <field name="icon_image">brake.png</field>
+    </record>
+
+    <record id="Garage_service_9" model="dev.machine.service">
+        <field name="name">AC Repair &amp; Gas Refill</field>
+        <field name="icon_image">ac.png</field>
+    </record>
+
+    <record id="Garage_service_10" model="dev.machine.service">
+        <field name="name">Electrical System Diagnostics</field>
+        <field name="icon_image">electrical.png</field>
+    </record>
+
+    <record id="Garage_service_11" model="dev.machine.service">
+        <field name="name">Car Washing &amp; Detailing</field>
+        <field name="icon_image">car_wash.png</field>
+    </record>
+
+    <record id="Garage_service_12" model="dev.machine.service">
+        <field name="name">Interior Vacuum &amp; Cleaning</field>
+        <field name="icon_image">interior_clean.png</field>
+    </record>
+
+    <record id="Garage_service_13" model="dev.machine.service">
+        <field name="name">Polishing &amp; Ceramic Coating</field>
+        <field name="icon_image">polish.png</field>
+    </record>
+
+    <record id="Garage_service_14" model="dev.machine.service">
+        <field name="name">Windshield &amp; Glass Replacement</field>
+        <field name="icon_image">glass_replace.png</field>
+    </record>
+
+    <record id="Garage_service_15" model="dev.machine.service">
+        <field name="name">Paint Touch-ups &amp; Full Body Paint</field>
+        <field name="icon_image">paint.png</field>
+    </record>
+    
+    
+</odoo>

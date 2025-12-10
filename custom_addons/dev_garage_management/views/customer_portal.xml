@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+
+    <template id="portal_my_home_repair_request" name="Portal My Home: Customer Details" customize_show="True"
+              inherit_id="portal.portal_my_home" priority="20">
+    	<xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+    	<t t-set="portal_client_category_enable" t-value="True"/>
+    	<t t-set="portal_alert_category_enable" t-value="True"/>
+    	</xpath>
+    	<div id="portal_alert_category" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="icon"
+                    t-value="'/dev_garage_management/static/description/images/job_card.png'"
+                    style="height:64px;width:64px;" />
+                <t t-set="title">Job Card</t>
+                <t t-set="text">Follow, view or print your job cards</t>
+                <t t-set="url" t-value="'/my/job_card'" />
+                <t t-set="placeholder_count" t-value="'repair_request'" />
+            </t>
+    	</div>
+ 	</template>
+    
+    <template id="portal_my_home_menu_repair" name="Portal layout : Repair menu entries" inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'repair' or repair and repair.state not in ('cancel')" t-attf-class="breadcrumb-item #{'active ' if not repair else ''}">
+                <a t-if="repair_request" t-attf-href="/my/job_card?{{ keep_query() }}">Job Card</a>
+                <t t-else="">Job Card</t>
+            </li>
+            <li t-if="repair_request" class="breadcrumb-item active">
+                <t t-esc="p_name"/>
+            </li>
+        </xpath>
+    </template>
+    
+    
+    
+    <template id="portal_my_repair_request" name="My Machine Repair Request">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Job Card</t>
+            </t>
+            <t t-if="not repair">
+                <p>There are currently no Job Card for your account.</p>
+            </t>
+            <t t-if="repair" t-call="portal.portal_table">
+
+		    <t t-foreach="grouped_repairs" t-as="groupe_repair">
+                   <thead>
+                       <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                       		<th t-if="groupby == 'none'">Name</th>
+                            <th t-else="">
+                                <t t-if="groupby == 'product_id'">
+                                    <em class="font-weight-normal text-muted">Vehicle:</em>
+                               		<span t-esc="groupe_repair[0].sudo().product_id.name"/>
+                                </t>
+                                <t t-if="groupby == 'state'">
+                                    <em class="font-weight-normal text-muted">State:</em>
+                                   	<span t-esc="groupe_repair[0].sudo().state"/>
+                                </t>
+                            </th>
+                        <th class="text-center">Request Date</th>
+                        <th class="text-left">Customer</th>
+                        <th class="text-left">Vehicle Model</th>
+                        <th class="text-center">State</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <t t-foreach="groupe_repair" t-as="l">
+	                    <tr>
+	                        <td><a t-att-href="l.get_portal_url()"><t t-esc="l.name"/></a></td>
+		                    <td class="text-center"><span t-field="l.request_date" t-options='{"widget": "date"}'/></td>
+		                    <td class="text-left"><span t-field="l.customer_id.name"/></td>
+		                    <td class="text-left"><span t-field="l.product_id"/></td>
+                            <td style="text-align:center;">
+                                <t t-if="l.state == 'draft' or l.state == 'assign' " name="status_draft">
+                                    <span class="badge rounded-pill text-bg-info" t-field="l.state"/>
+                                </t>
+                                <t t-elif="l.state=='cancel'" name="status_cancelled">
+                                    <span class="badge rounded-pill text-bg-danger" t-field="l.state"/>
+                                </t>
+                                <t t-elif="l.state=='done' or l.state=='confirm'" name="status_done">
+                                    <span class="badge rounded-pill text-bg-success" t-field="l.state"/>
+                                </t>
+                                <t t-else=" " name="status_confirm">
+                                    <span class="badge rounded-pill text-bg-warning" t-field="l.state"/>
+                                </t>
+                            </td>
+		                </tr>
+                       </t>
+                   </tbody>
+               </t>
+            </t>
+        </t>
+    </template>
+    
+    
+    <template id="repair_portal_template" name="Job Card" inherit_id="portal.portal_sidebar" primary="True">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <t t-set="o_portal_fullwidth_alert" groups="dev_garage_management.group_machine_user]">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url" t-value="'/web#return_label=Website&amp;model=%s&amp;id=%s&amp;action=%s&amp;view_type=form' % (repair._name, repair.id, repair.env.ref('dev_garage_management.action_machine_repair_request').id)"/>
+                </t>
+            </t>
+            
+            <div class="row mt16 ">
+<!--            o_portal_sale_sidebar-->
+                <!-- Sidebar -->
+                <t t-call="portal.portal_record_sidebar">
+                    <t t-set="classes" t-value="'col-lg-auto d-print-none'"/>
+                    <t t-set="title">
+                        <h2 class="mb-0"><span t-field="repair.name"/></h2>
+                    </t>
+                    <t t-set="entries">
+                        <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                            <li class="list-group-item flex-grow-1">
+                                <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                    <div class="btn-group flex-grow-1 mr-1 mb-1">
+                                        <a class="btn btn-secondary btn-block o_download_btn" t-att-href="repair.get_portal_url(report_type='pdf', download=True)" title="Download"><i class="fa fa-download"/> Download</a>
+                                    </div>
+                                    <div class="btn-group flex-grow-1 mb-1" style="margin-left:10px;">
+                                        <a class="btn btn-secondary btn-block o_print_btn o_portal_invoice_print" t-att-href="repair.get_portal_url(report_type='pdf')" id="print_repair_report" title="Print" target="_blank"><i class="fa fa-print"/> Print</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="navspy list-group-item pl-0 flex-grow-1" t-ignore="true" role="complementary">
+                                <ul class="nav flex-column bs-sidenav"></ul>
+                            </li>
+<!--                            <li t-if="repair.user_id" class="list-group-item flex-grow-1">-->
+<!--                                <div class="small mb-1"><strong class="text-muted">Your Contact</strong></div>-->
+<!--                                <div class="row flex-nowrap">-->
+<!--                                    <div class="col flex-grow-0 pr-2">-->
+<!--                                        <img class="rounded-circle mr4 float-left o_portal_contact_img" t-if="repair.user_id.image_1024" t-att-src="image_data_uri(repair.user_id.image_1024)" alt="Contact"/>-->
+<!--                                        <img class="rounded-circle mr4 float-left o_portal_contact_img" t-if="not repair.user_id.image_1024" src="/web/static/src/img/placeholder.png" alt="Contact"/>-->
+<!--                                    </div>-->
+<!--                                    <div class="col pl-0" style="min-width: 150px">-->
+<!--                                        <span t-field="repair.user_id" t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'/>-->
+<!--                                        <a href="#discussion" class="small"><i class="fa fa-comment"></i> Send message</a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </li>-->
+                            <div t-if="repair.user_id">
+                                <h6><small class="text-muted">Your contact</small></h6>
+                                <div class="o_portal_contact_details d-flex flex-column gap-2">
+                                    <div class="d-flex justify-content-start align-items-center gap-2">
+                                        <img class="o_avatar o_portal_contact_img rounded" t-att-src="image_data_uri(repair.user_id.image_1024)" alt="Contact"/>
+                                        <div>
+                                            <span t-field="repair.user_id"
+						t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'/>
+                                            <a href="#discussion" class="d-flex align-items-center gap-2 small fw-bold">
+                                            Send message
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </t>
+                </t>
+                <div id="repair_content" class="col-12 col-lg justify-content-end">
+	                <div t-attf-class="card #{'pb-5' if report_type == 'html' else ''}">
+<!--                        <div t-call="dev_garage_management.repair_portal_content"/>-->
+                         <t t-call="dev_garage_management.repair_portal_content"/>
+                    </div>
+
+	                <div id="repair_communication" class="mt-4">
+	                    <h2>Communication</h2>
+	                    <t t-call="portal.message_thread">
+	                        <t t-set="object" t-value="repair"/>
+	                    </t>
+	                </div>
+	            </div>
+            </div>
+        </xpath>
+    </template>
+    
+    
+    <template id="repair_portal_content" name="Repair Portal Content">
+        <div id="introduction" t-attf-class="pb-2 pt-3 #{'card-header bg-white' if report_type == 'html' else ''}">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="my-0 text-center">
+                        <span t-esc="repair.desc"/> [<span t-esc="repair.get_selection_label('dev.repair.request','state',repair.state)"/>]
+                    </h2>
+                </div>
+            </div>
+        </div>
+        
+        <div t-attf-class="#{'card-body' if report_type == 'html' else ''}">
+            <!-- Informations -->
+            <div id="informations">
+                <style>
+                        table .my_table{
+                            width:100%;
+                            font-size:13px;
+                        }
+                        .my_table td{
+                            padding:10px;
+                        }
+                        .my_time_table th{
+                            padding:10px;
+                            border-bottom:1px solid #f5f5f5;
+                        }
+                        .my_time_table td{
+                            padding:10px;
+                            border-bottom:1px solid #f5f5f5;
+                        }
+                    </style>
+                    
+                <!-- Clinet Details-->
+                <div class="row">
+                    <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                        <h3>Client Information</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <table width="100%" class="my_table">
+                        <tr>
+                            <td style="width:10%"><b>Name</b></td>
+                            <td colspan="3"><span t-field="repair.customer_id"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:10%"><b>Phone</b></td>
+                            <td style="width:40%"><span t-field="repair.phone"/></td>
+                            <td style="width:10%"><b>Email</b></td>
+                            <td style="width:40%"><span t-field="repair.email"/></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Machine Details-->
+                <div class="row">
+                    <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                        <br/><br/>
+                        <h3>Vehicle Information</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <table width="100%" class="my_table">
+                        <tr>
+                            <td style="width:15%"><b>Vehicle Model</b></td>
+                            <td style="width:35%">
+                                <t t-if="not repair.product_id">
+                                    <span t-field="repair.machine_name"/>
+                                </t>
+                                <t t-if="repair.product_id">
+                                    <span t-field="repair.product_id.name"/>
+                                </t>
+                            </td>
+                            <td style="width:15%"><b>Brand</b></td>
+                            <td style="width:35%"><span t-field="repair.brand"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Vehicle No</b></td>
+                            <td style="width:35%"><span t-field="repair.vehicle_number"/></td>
+                            <td style="width:15%"><b>Meter Reading</b></td>
+                            <td style="width:35%"><span t-field="repair.vehicle_meter"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Service</b></td>
+                            <td style="width:35%"><span t-field="repair.service_id"/></td>
+                            <td style="width:15%"><b>Man. Year</b></td>
+                            <td style="width:35%"><span t-field="repair.machine_year"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Service Type</b></td>
+                            <td style="width:35%"><span t-field="repair.service_type_id"/></td>
+                            <td style="width:15%"></td>
+                            <td style="width:35%"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Damage</b></td>
+                            <td colspan="3"><span t-field="repair.demage"/></td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+                <!-- Technician Details-->
+                <div class="row">
+                    <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                        <br/><br/>
+                        <h3>Technician Information</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <table width="100%" class="my_table">
+                        <tr>
+                            <td style="width:15%"><b>Technician</b></td>
+                            <td style="width:35%"><span t-field="repair.user_id.name"/></td>
+                            <td style="width:15%"><b>Team</b></td>
+                            <td style="width:35%"><span t-field="repair.team_id"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Company</b></td>
+                            <td style="width:35%"><span t-field="repair.company_id"/></td>
+                            <td style="width:15%"></td>
+                            <td style="width:35%"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                        <br/><br/>
+                        <h3>Other Information</h3>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <table width="100%" class="my_table">
+                        <tr>
+                            <td style="width:15%"><b>Request Date</b></td>
+                            <td style="width:35%"><span t-field="repair.request_date" t-options ='{"format": "dd-MM-yyyy"}'/></td>
+                            <td style="width:15%"><b>Close Date</b></td>
+                            <td style="width:35%"><span t-field="repair.close_date" t-options ='{"format": "dd-MM-yyyy"}'/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Is Repaired</b></td>
+                            <td style="width:35%">
+                                <t t-if="repair.is_repair">
+                                    <i style="color:green" class="fa fa-check" />
+                                </t>    
+                                <t t-if="not repair.is_repair">
+                                    <i style="color:red" class="fa fa-times" />
+                                </t>
+                            </td>
+                            <td style="width:15%"> <b>Duration</b></td>
+                            <td style="width:35%"><span t-field="repair.duration"/> Hours </td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Priority</b></td>
+                            <td colspan="3" style="color:gold;font-size:20px;">
+                                <t t-foreach="repair.get_priority()" t-as="p">
+                                    <i class="fa fa-star"></i>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+<!--                <t t-if="repair.timesheet_lines">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-12">-->
+<!--                            <table width="100%" class="my_time_table" style="page-break-inside: avoid">-->
+<!--                                <thead>-->
+<!--                                    <tr style="border-bottom:1px solid #f5f5f5">-->
+<!--                                        <th class="text-left" colspan="4"><br/><br/>-->
+<!--                                            <h3>Timesheet Information</h3>-->
+<!--                                        </th>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <th class="text-left" style="width:20%">Date</th>-->
+<!--                                        <th class="text-left" style="width:20%">Employee</th>-->
+<!--                                        <th class="text-left" style="width:40%">Description</th>-->
+<!--                                        <th class="text-right" style="width:20%">Hours</th>-->
+<!--                                    </tr>-->
+<!--                                </thead>-->
+<!--                                <tbody>-->
+<!--                                    <tr t-foreach="repair.timesheet_lines" t-as="line" style="page-break-inside: avoid">-->
+<!--                                        <td class="text-left" style="width:20%">-->
+<!--                                            <span t-field="line.date" t-options ='{"format": "dd-MM-yyyy"}'/>-->
+<!--                                        </td>-->
+<!--                                        <td class="text-left" style="width:20%"><span t-field="line.employee_id"/></td>-->
+<!--                                        <td class="text-left" style="width:40%"><span t-field="line.name"/></td>-->
+<!--                                        <td class="text-right" style="width:20%"><span t-esc="'%.2f'%(line.unit_amount)"/></td>-->
+<!--                                    </tr>-->
+<!--                                </tbody>-->
+<!--                            </table>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </t>-->
+                
+                <t t-if="repair.product_lines">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%" class="my_time_table" style="page-break-inside: avoid">
+                                <thead>
+                                    <tr style="border-bottom:1px solid #f5f5f5">
+                                        <th class="text-left" colspan="5"><br/><br/>
+                                            <h3>Consume Product Information</h3>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left" style="width:25%">Product</th>
+                                        <th class="text-left" style="width:30%">Description</th>
+                                        <th class="text-left" style="width:15%">Quantity</th>
+                                        <th class="text-center" style="width:15%">UOM</th>
+                                        <th class="text-right" style="width:15%">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="repair.product_lines" t-as="line" style="page-break-inside: avoid">
+                                        <td class="text-left">
+                                            <span t-field="line.product_id"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="'%.2f'%(line.quantity)"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="line.uom_id"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="line.price" t-options='{"widget": "monetary", "display_currency": repair.company_id.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+                
+                <t t-if="repair.instruction_lines">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%" class="my_time_table" style="page-break-inside: avoid">
+                                <thead>
+                                    <tr style="border-bottom:1px solid #f5f5f5">
+                                        <th class="text-left" colspan="5"><br/><br/>
+                                            <h3>Service Inspection</h3>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left" style="width:75%">Inspection</th>
+                                        <th class="text-left" style="width:25%">Checked</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="repair.instruction_lines" t-as="line" style="page-break-inside: avoid">
+                                        <td class="text-left">
+                                            <span t-field="line.instruction_id"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <t t-if="line.is_check">
+                                                <i style="color:green" class="fa fa-check" />
+                                            </t>    
+                                            <t t-if="not line.is_check">
+                                                <i style="color:red" class="fa fa-times" />
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+                
+                <t t-if="repair.notes">
+                    <div class="row">
+                        <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                            <br/><br/>
+                            <h3>Description</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <br/>
+                            <span t-field="repair.notes"/>
+                        </div>
+                    </div>
+                </t>
+
+            </div>
+        </div>
+    </template>
+    
+</odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+
+    <record id="view_time_slot_search" model="ir.ui.view">
+        <field name="name">time.slot.search</field>
+        <field name="model">time.slot</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="service_id"/>
+<!--                <group expand="1" string="Group By">-->
+                    <filter name="group_by_service" string="Service" context="{'group_by': 'service_id'}"/>
+<!--                </group>-->
+            </search>
+        </field>
+    </record>
+
+    <record id="view_time_slot_tree" model="ir.ui.view">
+        <field name="name">time.slot.tree</field>
+        <field name="model">time.slot</field>
+        <field name="arch" type="xml">
+            <list create="false">
+            	 <field name="service_id" />
+                <field name="day" string="Day"/>
+                <field name="slot_duration" string="Duration"/>
+                <field name="start_time" widget="float_time" string="Start Time"/>
+                <field name="end_time" widget="float_time" string="End Time"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_time_slot_form" model="ir.ui.view">
+        <field name="name">time.slot.form</field>
+        <field name="model">time.slot</field>
+        <field name="arch" type="xml">
+            <form create="false">
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="slot_duration"/>
+                            <field name="start_time" widget="float_time"/>
+                            <field name="end_time" widget="float_time"/>
+                        </group>
+                        <group invisible="1">
+                            <field name="active"/>
+                        </group>
+
+                    </group>
+
+                    <notebook>
+                        <page string="Generated Slots">
+                            <field name="slot_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="day"/>
+                                    <field name="service_id" invisible="1" nolabel="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_time_slot" model="ir.actions.act_window">
+        <field name="name">Time Slots</field>
+        <field name="res_model">time.slot</field>
+        <field name="view_mode">search,list,form</field>
+    </record>
+
+
+    <menuitem id="menu_time_slot" name="Time Slots" parent="dev_garage_management.menu_dev_repair_configration"
+              action="action_time_slot" sequence="10"/>
+
+</odoo>

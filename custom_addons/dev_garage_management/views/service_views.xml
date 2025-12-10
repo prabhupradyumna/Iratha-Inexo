@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+
+    <record id="mservice_configuration_form_view" model="ir.ui.view">
+        <field name="name">mservice.configuration.form.view</field>
+        <field name="model">dev.machine.service</field>
+        <field name="arch" type="xml">
+            <form string="Services Form">
+            	 <header>
+                    <button name="action_generate_slots_appointment" type="object" string="Generate Slots"
+                            class="btn-primary"/>
+                            
+                </header>
+                
+                <sheet>
+                    <widget name="web_ribbon" title="Publish" invisible="is_active != True"/>
+                    <widget name="web_ribbon" title="Unpublish" bg_color="text-bg-danger" invisible="is_active != False"/>
+                    <field name="image_1920" widget="image" class="oe_avatar" style="margin-right:120px;"/>
+                   <div style="display: flex; align-items: center;">
+                        <div style="flex-grow: 1; margin-right: 20px;">
+                            <label for="name" style="font-size: 18px; font-weight: bold;">Name</label>
+                            <field name="name" style="font-size: 22px; height: 40px; font-weight: bold; width: 100%;" required="1"/>
+                        </div>
+                    </div>
+                    <group>
+                        
+                        <group>
+                            <field name="service_charge_amount" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                    </group>
+                    <group string="Details">
+                        <group>
+                            <field name="appointment_type"/>
+                        </group>
+                        <group>
+                            <field name="tz"/>
+                            <field name="location"/>
+<!--                            <field name="fees"/>-->
+                        </group>
+                    </group>
+                    <group string="Timing">
+                        <group>
+                            <span class="fw-bold text-nowrap">Days</span>
+                            <div>
+                                <!-- <field name="week_day"/> -->
+                                <widget name="calendar_week_days"/>
+                            </div>
+                            <label for="slot_duration" string="Slot Duration"/>
+                            <div class="oe_inline" style="display: flex; align-items: center;">
+                                <field name="slot_duration" nolabel="1" style="width: 60px; margin-right: 4px;"/>
+                                <span>min</span>
+                            </div>
+                            <label for="buffer_time" string="Buffer Time"/>
+                            <div class="oe_inline" style="display: flex; align-items: center;">
+                                    <field name="buffer_time" nolabel="1" style="width: 60px; margin-right: 4px;"/>
+                                    <span>min</span>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="start_time" widget="float_time" placeholder="24 hours format"
+                                   help="Please Enter 24 hours format"/>
+                            <field name="end_time" widget="float_time" placeholder="24 hours format"
+                                   help="Please Enter 24 hours format"/>
+                            
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                         <page string="Generated Slots">
+                            <field name="time_slot_ids">
+                                <list>
+                                    <field name="day" string="Days"/>
+                                    <field name="total_slot_count" string="Total Slots"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Website">
+                            <group>
+                                <field name="is_active" widget="boolean_toggle"/>
+                            </group>
+                            <group>
+                                <field name="icon_image"/>
+                            </group>
+                        </page>
+
+                        <page string="Other Information">
+                            <group>
+                                <group>
+                                    <field name="user_id"/>
+                                </group>
+                                <group>
+                                    <field name="company_id"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dev_machine_service_tree" model="ir.ui.view">
+        <field name="name">view.dev.machine.searvice.tree</field>
+        <field name="model">dev.machine.service</field>
+        <field name="arch" type="xml">
+            <list string="Service" >
+                <field name="name"/>
+                <field name="company_id" column_invisible="1"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="user_id" column_invisible="1"/>
+                <field name="appointment_type"/>
+                <field name="location"/>
+                <field name="start_time" widget="float_time"/>
+                <field name="end_time" widget="float_time"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_dev_machine_service" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="res_model">dev.machine.service</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="Services" id="menu_dev_machine_service" parent="dev_garage_management.menu_dev_repair_configration" action="action_dev_machine_service" sequence="1"/>
+    
+</odoo>

@@ -1,0 +1,1956 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dev_garage_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-15 09:37+0000\n"
+"PO-Revision-Date: 2025-05-15 09:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+
+#. module: dev_garage_management
+#: model:ir.actions.report,print_report_name:dev_garage_management.menu_machine_repair_request
+msgid "'%s - Job Card' % (object.name)"
+msgstr "' %s - card di lavoro' % (object.name)"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "+91 93283 65893"
+msgstr "+91 93283 65893"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.product_sale_history_report_body
+msgid "<b> Product </b>"
+msgstr "<b> Prodotto </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.product_sale_history_report_body
+msgid "<b> Quantity </b>"
+msgstr "<b> quantità </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Brand</b>"
+msgstr "<b> Brand </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Close Date</b>"
+msgstr "<b> Data di chiusura </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Company</b>"
+msgstr "<b> azienda </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.instruction_checklist_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+msgid "<b>Customer</b>"
+msgstr "<b> Cliente </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Damage</b>"
+msgstr "<b> danno </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+msgid "<b>Demage</b>"
+msgstr "<b> DeMage </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+msgid "<b>Description</b>"
+msgstr "<b> Descrizione </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Duration</b>"
+msgstr "<b> durata </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Email</b>"
+msgstr "<b> email </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "<b>End Date:</b> :"
+msgstr "<b> Data di fine: </b>:"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.product_sale_history_report_body
+msgid "<b>End Date</b> :"
+msgstr "<b> Data di fine </b>:"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+msgid "<b>Hours Spent :</b>"
+msgstr "<b> Ore trascorse: </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Is Repaired</b>"
+msgstr "<b> viene riparato </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Man. Year</b>"
+msgstr "<b> uomo.Anno </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Meter Reading</b>"
+msgstr "<b> Lettura dei metri </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Name</b>"
+msgstr "<b> nome </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "<b>Number</b>"
+msgstr "<b> numero </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Phone</b>"
+msgstr "<b> Telefono </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Priority</b>"
+msgstr "<b> priorità </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.instruction_checklist_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Request Date</b>"
+msgstr "<b> Data di richiesta </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Service Type</b>"
+msgstr "<b> Tipo di servizio </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Service</b>"
+msgstr "<b> servizio </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "<b>Start Date:</b> :"
+msgstr "<b> Data di inizio: </b>:"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.product_sale_history_report_body
+msgid "<b>Start Date</b> :"
+msgstr "<b> Data di inizio </b>:"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "<b>Status</b>"
+msgstr "<b> Stato </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Team</b>"
+msgstr "<b> Team </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Technician</b>"
+msgstr "<b> Tecnico </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+msgid "<b>Total :</b>"
+msgstr "<b> Totale: </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Vehicle Model</b>"
+msgstr "<b> Modello del veicolo </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "<b>Vehicle No</b>"
+msgstr "<b> VEICOLO NO </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "<b>Vehicle</b>"
+msgstr "<b> Veicolo </b>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+msgid "<em class=\"font-weight-normal text-muted\">State:</em>"
+msgstr "<em class=\"font-weight-normal text-muted\"> Stato: </em>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+msgid "<em class=\"font-weight-normal text-muted\">Vehicle:</em>"
+msgstr "<em class=\"font-weight-normal text-muted\"> Veicolo: </em>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_template
+msgid "<i class=\"fa fa-download\"/> Download"
+msgstr "<i class = \"fa fa-download\"/> download"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_template
+msgid "<i class=\"fa fa-print\"/> Print"
+msgstr "<i class = \"fa fa-print\"/> stampa"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "<i class=\"fa-times\" title=\"Delete\"/>"
+msgstr "<i class = \"fa-times\" title = \"delete\"/>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_template
+msgid "<small class=\"text-muted\">Your contact</small>"
+msgstr "<small class=\"text-muted\"> Il tuo contatto </small>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_repair_requst_kanban
+msgid "<span class=\"fa fa-user me-2\" aria-label=\"Partner\" title=\"Partner\"/>"
+msgstr "<span class=\"fa fa-user me-2\" aria-label=\"partner\" title=\"partner\"/>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "<span class=\"o_stat_text\"><b>Vehicle <br/>Diagnosis</b></span>"
+msgstr "<span class=\"o_stat_text\"> <b> veicolo <br/> diagnosi </b> </span>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "<span class=\"o_stat_text\"><b>Work Order</b></span>"
+msgstr "<span class=\"o_stat_text\"> <b> Ordine di lavoro </b> </span>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "<span class=\"text-danger\"> *</span>"
+msgstr "<span class = \"text-danger\"> *</span>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.instruction_checklist_body_template
+msgid ""
+"<span style=\"border-bottom: 1px solid black; padding-bottom: "
+"5px;\">Notes</span>"
+msgstr ""
+"<span style=\"border-bottom: 1px solid black; padding-bottom: "
+"5px;\">Note</span>"
+
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid ""
+"<span style=\"border-bottom: 2px solid #007bff; padding-bottom: "
+"5px;\">Personal Information</span>"
+msgstr ""
+"<span style=\"border-bottom: 2px solid #007bff; padding-bottom: "
+"5px;\">Informazioni personali</span>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid ""
+"<span style=\"border-bottom: 2px solid #007bff; padding-bottom: "
+"5px;\">Vehicle Repair Information</span>"
+msgstr ""
+"<span style=\"border-bottom: 2px solid #007bff; padding-bottom: "
+"5px;\"> Informazioni sulla riparazione del veicolo </span>"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.instruction_checklist_body_template
+msgid "<span>Job Card # </span>"
+msgstr "<span> carta di lavoro # </span>"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__access_warning
+msgid "Access warning"
+msgstr "Avviso di accesso"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_needaction
+msgid "Action Needed"
+msgstr "Azione necessaria"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_ids
+msgid "Activities"
+msgstr "Attività"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Attività Eccezione Decorazione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_state
+msgid "Activity State"
+msgstr "Stato di attività"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icona del tipo di attività"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.dev_view_create_purchase_form
+msgid "Add Vendor"
+msgstr "Aggiungi il fornitore"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "All"
+msgstr "Tutto"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Linea analitica"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_crm_team_form
+msgid "Archived"
+msgstr "Archiviata"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__state__assign
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Assign"
+msgstr "Assegnare"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "Assigned"
+msgstr "Assegnato"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteggio di allegato"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_crm_team_form
+msgid "Avatar"
+msgstr "Avatar"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_avg
+msgid "Average Rating"
+msgstr "Valutazione media"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__brand
+msgid "Brand"
+msgstr "Marca"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_team__is_default
+msgid "By Default"
+msgstr "Per impostazione predefinita"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__campaign_id
+msgid "Campaign"
+msgstr "Campagna"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__state__cancel
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Cancel"
+msgstr "Cancellare"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "Cancelled"
+msgstr "Annullata"
+#. module: dev_garage_management
+#: model:ir.actions.report,name:dev_garage_management.menu_machine_repair_request_label_report
+msgid "Card Label"
+msgstr "Etichetta delle carte"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__is_check
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.instruction_checklist_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Checked"
+msgstr "Controllato"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Client Information"
+msgstr "Informazioni sul cliente"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__close_date
+msgid "Close Date"
+msgstr "Data di chiusura"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.dev_view_create_purchase_form
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_job_card_history_wizard
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_product_sale_history_wizard
+msgid "Close Window"
+msgstr "Chiudi la finestra"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_service__code
+msgid "Code"
+msgstr "Codice"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_template
+msgid "Communication"
+msgstr "Comunicazione"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_res_company
+msgid "Companies"
+msgstr "Aziende"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__company_id
+msgid "Company"
+msgstr "Azienda"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni di configurazione"
+#. module: dev_garage_management
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_repair_configration
+msgid "Configuration"
+msgstr "Configurazione"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__state__confirm
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Confirm"
+msgstr "Confermare"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "Confirmed"
+msgstr "Confermata"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Consume Parts"
+msgstr "Consumare parti"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Consume Product Information"
+msgstr "Consumare informazioni sul prodotto"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_template
+msgid "Contact"
+msgstr "Contatto"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Contact Name"
+msgstr "Nome contatto"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.dev_view_create_purchase_form
+msgid "Create"
+msgstr "Creare"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Create Diagnosis"
+msgstr "Creare diagnosi"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_lead_garage_manage
+msgid "Create Job Order"
+msgstr "Crea un ordine di lavoro"
+#. module: dev_garage_management
+#: model_terms:ir.actions.act_window,help:dev_garage_management.action_machine_repair_request
+msgid ""
+"Create New Job Card<br>\n"
+"                Odoo helps you track all activities related to your job cards."
+msgstr ""
+"Crea una nuova scheda di lavoro <br>\n"
+"Odoo ti aiuta a tenere traccia di tutte le attività relative alle tue carte di lavoro."
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_create_purchase
+msgid "Create Purchase Order"
+msgstr "Crea un ordine di acquisto"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_dev_view_create_purchase
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_project_task_diagnosys_form
+msgid "Create RFQ"
+msgstr "Crea rfq"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_project_task_diagnosys_form
+msgid "Create Sale"
+msgstr "Crea vendita"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Create Workorder"
+msgstr "Crea Workorder"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_create_purchase__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_instruction__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_service__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_inspection_template__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_job_card_history__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_sale_history__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__create_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__create_uid
+msgid "Created by"
+msgstr "Creato da"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_create_purchase__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_instruction__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_service__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_inspection_template__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_job_card_history__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_sale_history__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__create_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__create_date
+msgid "Created on"
+msgstr "Creato su"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__customer_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Customer"
+msgstr "Cliente"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__access_url
+msgid "Customer Portal URL"
+msgstr "URL del portale del cliente"
+#. module: dev_garage_management
+#: model:mail.message.subtype,name:dev_garage_management.mt_customer_service_rating
+msgid "Customer Service Rating"
+msgstr "Valutazione del servizio clienti"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Customer rated “%s”."
+msgstr "Cliente valutato \"%s\"."
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_lead__demage
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__demage
+msgid "Damage"
+msgstr "Danno"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+msgid "Date"
+msgstr "Data"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__desc
+msgid "Desc"
+msgstr "Desc"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__notes
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__name
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__name
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Description"
+msgstr "Descrizione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__diagnosys_id
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__project_task__task_type__diagnosys
+msgid "Diagnosys"
+msgstr "Diagnosys"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_create_purchase__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_instruction__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_service__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_inspection_template__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_job_card_history__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_sale_history__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__display_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__display_name
+msgid "Display Name"
+msgstr "Nome da visualizzare"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__rating_text__ko
+msgid "Dissatisfied"
+msgstr "Insoddisfatta"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__doc_count
+msgid "Documents Count"
+msgstr "Conta dei documenti"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__state__done
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Done"
+msgstr "Fatto"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_template
+msgid "Download"
+msgstr "Scaricamento"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__state__draft
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Draft"
+msgstr "Bozza"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Duration (Hours)"
+msgstr "Durata (ore)"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__email
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Email"
+msgstr "E-mail"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__email_cc
+msgid "Email cc"
+msgstr "Email CC"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_job_card_history__end_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_sale_history__end_date
+msgid "End Date"
+msgstr "Data di fine"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/wizard/job_card_history.py:0
+#: code:addons/dev_garage_management/wizard/product_sale_history.py:0
+msgid "End date must be greater than the start date."
+msgstr "La data di fine deve essere maggiore della data di inizio."
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Enter Your Name"
+msgstr "Inserisci il tuo nome"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__feedback_date
+msgid "Feedback Date"
+msgstr "Data di feedback"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_home_repair_request
+msgid "Follow, view or print your job cards"
+msgstr "Segui, visualizza o stampano le tue carte di lavoro"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_follower_ids
+msgid "Followers"
+msgstr "Seguaci"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguaci (partner)"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font Awesome icona ad es.FA-Tasks"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_config_dev_garage_management
+msgid "Garage"
+msgstr "Garage"
+#. module: dev_garage_management
+#: model:ir.module.category,name:dev_garage_management.category_machine
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_repair_menu
+msgid "Garage Management"
+msgstr "Gestione del garage"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Group By"
+msgstr "Gruppo di"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__has_message
+msgid "Has Message"
+msgstr "Ha un messaggio"
+#. module: dev_garage_management
+#: model:ir.module.category,description:dev_garage_management.category_machine
+msgid "Helps you handle your Machine Repair Request Access."
+msgstr ""
+"Ti aiuta a gestire l'accesso alla richiesta di riparazione della macchina."
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__priority__2
+msgid "High"
+msgstr "Alto"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Hours"
+msgstr "Ore"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_create_purchase__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_instruction__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_service__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_inspection_template__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_job_card_history__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_sale_history__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__id
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__id
+msgid "ID"
+msgstr "ID"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_exception_icon
+msgid "Icon"
+msgstr "Icona"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icona per indicare un'attività di eccezione."
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Se controllati, i nuovi messaggi richiedono la tua attenzione."
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__message_has_error
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Se controllati, alcuni messaggi hanno un errore di consegna."
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_image
+msgid "Image"
+msgstr "Immagine"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Images"
+msgstr "Immagini"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__state__in_progress
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "In Process"
+msgstr "In corso"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "In Progress"
+msgstr "In corso"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Incorrect rating: should be 1, 3 or 5 (received %d)"
+msgstr "Valutazione errata: dovrebbe essere 1, 3 o 5 (ricevuto %d)"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_dev_machine_instruction
+#: model:ir.model.fields,field_description:dev_garage_management.field_inspection_template__inspection_ids
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__instruction_id
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_machine_instruction
+#: model:ir.ui.menu,name:dev_garage_management.menu_garage_inspection_configure
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.inspection_template_form_view
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.instruction_checklist_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Inspection"
+msgstr "Ispezione"
+#. module: dev_garage_management
+#: model:ir.actions.report,name:dev_garage_management.menu_instruction_checklist_report
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.instruction_checklist_body_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Inspection Checklist"
+msgstr "Elenco di controllo dell'ispezione"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.inspection_template_menu_action
+#: model:ir.model,name:dev_garage_management.model_inspection_template
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__inspection_template_id
+#: model:ir.ui.menu,name:dev_garage_management.inspection_template_menu_id
+msgid "Inspection Template"
+msgstr "Modello di ispezione"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.inspection_template_form_view
+msgid "Inspection Template Form"
+msgstr "Forma del modello di ispezione"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.inspection_template_tree_view
+msgid "Inspection Template Tree"
+msgstr "Albero modello di ispezione"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_report_dev_garage_management_machine_repair_card_report
+msgid "Instruction Checklist Report"
+msgstr "Rapporto Elenco di controllo delle istruzioni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__instruction_lines
+msgid "Instruction Lines"
+msgstr "Linee di istruzioni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_is_follower
+msgid "Is Follower"
+msgstr "È follower"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+#: model:ir.actions.act_window,name:dev_garage_management.action_machine_repair_request
+#: model:ir.actions.report,name:dev_garage_management.menu_machine_repair_request
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_machine_repair
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_machine_repair_request
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_lead_garage_manage
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_home_menu_repair
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_home_repair_request
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_calendar
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_tree
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_project_task_search_inherit
+msgid "Job Card"
+msgstr "Carta di lavoro"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_lead__job_card
+msgid "Job Card "
+msgstr "Carta di lavoro"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_job_card_analysis
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_garage_job_card_analysis
+msgid "Job Card Analysis"
+msgstr "Analisi delle carte di lavoro"
+#. module: dev_garage_management
+#: model:mail.template,name:dev_garage_management.customer_email_template_garage_job_closed
+msgid "Job Card Done"
+msgstr "Carta di lavoro svolta"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_job_card_history
+#: model:ir.actions.report,name:dev_garage_management.dev_job_card_history_report_menu
+#: model:ir.model,name:dev_garage_management.model_job_card_history
+#: model:ir.model,name:dev_garage_management.model_product_sale_history
+#: model:ir.ui.menu,name:dev_garage_management.menu_job_card_history
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.job_card_history_report_body
+msgid "Job Card History"
+msgstr "Cronologia della scheda lavoro"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_report_dev_garage_management_job_card_history_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_job_card_history_wizard
+msgid "Job Card History Report"
+msgstr "Rapporto sulla cronologia delle carte di lavoro"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Job Card delete on Draft and cancel state only !!!."
+msgstr "Scheda di lavoro Elimina su bozza e annulla solo stato !!!."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Last 30 Days"
+msgstr "Ultimi 30 giorni"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Last 7 Days"
+msgstr "Ultimi 7 giorni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_create_purchase__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_instruction__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_service__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_inspection_template__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_job_card_history__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_sale_history__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__write_uid
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento da"
+
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_create_purchase__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_instruction__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_service__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_inspection_template__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_job_card_history__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_sale_history__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__write_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento su"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Last Week"
+msgstr "La settimana scorsa"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__lead_id
+#: model:ir.ui.menu,name:dev_garage_management.menu_lead_garage_management
+#: model:ir.ui.menu,name:dev_garage_management.sub_menu_lead_garage
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Lead"
+msgstr "Guida"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Piombo/opportunità"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "List Of Damage"
+msgstr "Elenco dei danni"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Load Inspection"
+msgstr "Ispezione del carico"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__priority__0
+msgid "Low"
+msgstr "Basso"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+msgid "Machine Information"
+msgstr "Informazioni sulla macchina"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_dev_machine_instruction
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_instruction_tree
+msgid "Machine Instruction"
+msgstr "Istruzione della macchina"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_report_dev_garage_management_machine_repair_report
+msgid "Machine Repair Request Report"
+msgstr "Rapporto sulla richiesta di riparazione della macchina"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_dev_machine_service
+msgid "Machine Service"
+msgstr "Servizio macchina"
+#. module: dev_garage_management
+#: model:res.groups,name:dev_garage_management.group_machine_manager
+msgid "Manager"
+msgstr "Manager"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__machine_year
+msgid "Manufacturing Year"
+msgstr "Anno di produzione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__medium_id
+msgid "Medium"
+msgstr "Medio"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_has_error
+msgid "Message Delivery error"
+msgstr "Errore di consegna dei messaggi"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_ids
+msgid "Messages"
+msgstr "Messaggi"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__vehicle_meter
+msgid "Meter Reading"
+msgstr "Lettura del contatore"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__model
+msgid "Model"
+msgstr "Modello"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_res_company__month_duration
+#: model:ir.model.fields,field_description:dev_garage_management.field_res_config_settings__month_duration
+msgid "Months"
+msgstr "Mesi"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "La mia scadenza di attività"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "My Job Card"
+msgstr "La mia carta di lavoro"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_instruction__name
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_machine_service__name
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__name
+#: model:ir.model.fields,field_description:dev_garage_management.field_inspection_template__name
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.inspection_template_form_view
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_tree
+msgid "Name"
+msgstr "Nome"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Evento del calendario delle attività successivi"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Scadenza dell'attività successiva"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_summary
+msgid "Next Activity Summary"
+msgstr "Riepilogo dell'attività successiva"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo di attività successivo"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__rating_text__none
+msgid "No Rating yet"
+msgstr "Nessuna valutazione ancora"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__priority__1
+msgid "Normal"
+msgstr "Normale"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Not Repaired"
+msgstr "Non riparato"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_tree
+msgid "Number"
+msgstr "Numero"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__vehicle_number
+msgid "Number Plate"
+msgstr "Targa"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Numero di azioni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_has_error_counter
+msgid "Number of errors"
+msgstr "Numero di errori"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Numero di messaggi che richiedono un'azione"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Numero di messaggi con errore di consegna"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__rating_text__ok
+msgid "Okay"
+msgstr "Va bene"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Order viewed by customer %s"
+msgstr "Ordine visualizzato dai clienti"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Other Information"
+msgstr "Altre informazioni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__phone
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Phone"
+msgstr "Telefono"
+#. module: dev_garage_management
+#: model:ir.ui.menu,name:dev_garage_management.sub_menu_pipeline_garage
+msgid "Pipeline"
+msgstr "Pipeline"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/project_task.py:0
+#: code:addons/dev_garage_management/wizard/create_purchase.py:0
+msgid "Please Add Estimation Lines."
+msgstr "Si prega di aggiungere le linee di stima."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please Add Service Charge."
+msgstr "Si prega di aggiungere il servizio di servizio."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please Assign Close Date to Job Card."
+msgstr "Assegnare la data di chiusura alla scheda di lavoro."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please Assign team and technician to Job Card."
+msgstr "Assegnare il team e il tecnico alla carta di lavoro."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please Create Diagnosis for Job Card."
+msgstr "Si prega di creare una diagnosi per la carta di lavoro."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please Create Workorder for Job Card."
+msgstr "Si prega di creare Workorder per la carta di lavoro."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please Select Close Date."
+msgstr "Seleziona la data di chiusura."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/project_task.py:0
+msgid "Please Select Customer."
+msgstr "Seleziona il cliente."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please Select Project."
+msgstr "Seleziona il progetto."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please Select Technician."
+msgstr "Seleziona il tecnico."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Please select Inspection Template"
+msgstr "Seleziona il modello di ispezione"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/models/repair_request.py:0
+msgid "Plese Add timesheet in workorder."
+msgstr "Si prega di aggiungere la scheda attività nell'ordine di lavoro."
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__access_url
+msgid "Portal Access URL"
+msgstr "URL di accesso al portale"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__price
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__price
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Price"
+msgstr "Prezzo"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_template
+msgid "Print"
+msgstr "Stampa"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_job_card_history_wizard
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_product_sale_history_wizard
+msgid "Print PDF"
+msgstr "Stampa PDF"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__priority
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Priority"
+msgstr "Priorità"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Process"
+msgstr "Processo"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_product_template
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__product_id
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__product_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Product"
+msgstr "Prodotto"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__product_lines
+#: model:ir.model.fields,field_description:dev_garage_management.field_project_task__product_lines
+msgid "Product Lines"
+msgstr "Linee di prodotti"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_product_sale_history_wizard
+msgid "Product Sale  History Report"
+msgstr "Rapporto sulla cronologia della vendita dei prodotti"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_product_sale_history
+#: model:ir.actions.report,name:dev_garage_management.dev_product_sale_history_report_menu
+#: model:ir.ui.menu,name:dev_garage_management.menu_product_sale_history
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.product_sale_history_report_body
+msgid "Product Sale History"
+msgstr "Storia di vendita dei prodotti"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_report_dev_garage_management_product_sale_report_template
+msgid "Product Sale History Report"
+msgstr "Rapporto sulla cronologia della vendita dei prodotti"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_create_purchase__product_ids
+msgid "Products"
+msgstr "Prodotti"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__project_id
+msgid "Project"
+msgstr "Progetto"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_purchase_order__project_task_id
+msgid "Project Task"
+msgstr "Attività del progetto"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_project_task__purchase_count
+msgid "Purchase Count"
+msgstr "Conteggio degli acquisti"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_purchase_order
+msgid "Purchase Order"
+msgstr "Ordinazione d'acquisto"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_project_task__purchase_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_project_task_diagnosys_form
+msgid "Purchases"
+msgstr "Acquisti"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__quantity
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__quantity
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Quantity"
+msgstr "Quantità"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__feedback_rate
+msgid "Rate"
+msgstr "Valutare"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_text
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Rating"
+msgstr "Valutazione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_avg_text
+msgid "Rating Avg Text"
+msgstr "Valutazione del testo AVG"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_last_feedback
+msgid "Rating Last Feedback"
+msgstr "Valutazione dell'ultimo feedback"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_last_image
+msgid "Rating Last Image"
+msgstr "Valutazione dell'ultima immagine"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_last_value
+msgid "Rating Last Value"
+msgstr "Valutazione dell'ultimo valore"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_percentage_satisfaction
+msgid "Rating Satisfaction"
+msgstr "Soddisfazione di valutazione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_last_text
+msgid "Rating Text"
+msgstr "Testo di valutazione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_count
+msgid "Rating count"
+msgstr "Conteggio delle valutazioni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__rating_ids
+#: model:mail.message.subtype,description:dev_garage_management.mt_customer_service_rating
+msgid "Ratings"
+msgstr "Valutazioni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_repair_checklist_lines__repair_id
+msgid "Reapir"
+msgstr "Reapir"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_dev_repair_request_product_lines
+msgid "Reapir Request Product Lines"
+msgstr "RIPARAZIONE RICHIEDE Linee di prodotto"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_crm_team_tree
+msgid "Reapir Team"
+msgstr "Team di riparazione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_lead__repair_reason
+msgid "Reason For Repair"
+msgstr "Motivo della riparazione"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Reason For Repair In Details"
+msgstr "Motivo della riparazione in dettaglio"
+#. module: dev_garage_management
+#: model:mail.template,subject:dev_garage_management.customer_email_template_garage_job_closed
+msgid "Ref {{object.name or '' }}"
+msgstr "Ref {{object.name o ''}}"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_config_dev_garage_management
+msgid "Renewable Notification Interval"
+msgstr "Intervallo di notifica rinnovabile"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_repair_checklist_lines
+msgid "Repair Checklist Lines"
+msgstr "Riparare le linee di controllo"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_product__repair_count
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_template__repair_count
+msgid "Repair Count"
+msgstr "Conteggio delle riparazioni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__document_ids
+msgid "Repair Documents"
+msgstr "Documenti di riparazione"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_project_task_diagnosys_form
+msgid "Repair Estimation"
+msgstr "Stima di riparazione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_lead__repair_issue
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Repair Issue"
+msgstr "Problema di riparazione"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_dev_repair_request
+#: model:ir.model.fields,field_description:dev_garage_management.field_account_analytic_line__repair_request_id
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__repair_request_id
+#: model:ir.model.fields,field_description:dev_garage_management.field_project_task__repair_request_id
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__repair_request_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_activity
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_graph
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_pivot
+msgid "Repair Request"
+msgstr "Richiesta di riparazione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__lead_counter
+msgid "Repair Request "
+msgstr "Richiesta di riparazione"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_repair_team
+#: model:ir.ui.menu,name:dev_garage_management.menu_repair_team
+msgid "Repair Teams"
+msgstr "Squadre di riparazione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__is_repair
+msgid "Repair Vehicle"
+msgstr "Riparazione del veicolo"
+#. module: dev_garage_management
+#: model:website.menu,name:dev_garage_management.new_repair_request_menu
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Repair/Service Request"
+msgstr "Richiesta di riparazione/servizio"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Repaired"
+msgstr "Riparato"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__duration
+msgid "Repairing Duration(In Hours)"
+msgstr "Riparazione della durata (in ore)"
+#. module: dev_garage_management
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_garage_reporting
+msgid "Reporting"
+msgstr "Reporting"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__request_date
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Request Date"
+msgstr "Data di richiesta"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__activity_user_id
+msgid "Responsible User"
+msgstr "Utente responsabile"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__review
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Review"
+msgstr "Revisione"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Errore di consegna SMS"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__sale_count
+msgid "Sale"
+msgstr "Vendita"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_project_task__sale_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_project_task_diagnosys_form
+msgid "Sales"
+msgstr "Salde"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_project_task__sale_count
+msgid "Sales Count"
+msgstr "Conteggio delle vendite"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_crm_team
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_crm_team_form
+msgid "Sales Team"
+msgstr "Team di vendita"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_crm_team_form
+msgid "Sales Team name..."
+msgstr "Nome del team di vendita ..."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__rating_text__top
+msgid "Satisfied"
+msgstr "Soddisfatto"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Search Request"
+msgstr "Richiesta di ricerca"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Search in All"
+msgstr "Cerca in tutto"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Search in Company"
+msgstr "Cerca in compagnia"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Search in Number"
+msgstr "Cerca in numero"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Search in State"
+msgstr "Cerca nello stato"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Search in Vehicle"
+msgstr "Cerca nel veicolo"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Search in Vehicle Number"
+msgstr "Cerca nel numero del veicolo"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__access_token
+msgid "Security Token"
+msgstr "Token di sicurezza"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Send Rating Email"
+msgstr "Invia e -mail di valutazione"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_template
+msgid "Send message"
+msgstr "Invia messaggio"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_lead__service_id
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__service_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_service_tree
+msgid "Service"
+msgstr "Servizio"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Service Charge"
+msgstr "Servizio"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Service Inspection"
+msgstr "Ispezione del servizio"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_service_product_lines
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__service_product_lines
+msgid "Service Product Lines"
+msgstr "Linee di prodotti di servizio"
+
+#. module: dev_garage_management
+#: model:mail.template,body_html:dev_garage_management.rating_service_request_email_template
+msgid ""
+"<div>\n"
+"                <t t-set=\"access_token\" t-value=\"object._rating_get_access_token()\"/>\n"
+"                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                Hello <b><span t-out=\"object.customer_id.name or ''\"/></b>,\n"
+"                                <br/>\n"
+"                                <br/>\n"
+"                                Please take a moment to rate our services related to the Job Card \"\n"
+"                                <strong>\n"
+"                                    <span t-out=\"object.name\"/>\n"
+"                                </strong>\n"
+"                                \"\n"
+"                                <t t-if=\"object.user_id\">\n"
+"                                    created by\n"
+"                                    <strong>\n"
+"                                        <span t-out=\"object.user_id.name\"/>\n"
+"                                    </strong>\n"
+"                                    .\n"
+"                                    <br/>\n"
+"                                </t>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"text-align: center;\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" style=\"width:100%; margin: 32px 0px 32px 0px;\">\n"
+"                                    <tr>\n"
+"                                        <td style=\"font-size: 13px;\">\n"
+"                                            <strong>Tell us how you feel about our service</strong>\n"
+"                                            <br/>\n"
+"                                            <span style=\"text-color: #888888\">(click on one of these smileys)</span>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td style=\"font-size: 13px;\">\n"
+"                                            <table style=\"width:100%;text-align:center;\">\n"
+"                                                <tr>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/rate/{{ access_token }}/5\">\n"
+"                                                            <img alt=\"Satisfied\" src=\"/rating/static/src/img/rating_5.png\" title=\"Satisfied\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/rate/{{ access_token }}/3\">\n"
+"                                                            <img alt=\"Not satisfied\" src=\"/rating/static/src/img/rating_3.png\" title=\"Not satisfied\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/rate/{{ access_token }}/1\">\n"
+"                                                            <img alt=\"Highly Dissatisfied\" src=\"/rating/static/src/img/rating_1.png\" title=\"Highly Dissatisfied\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                We appreciate your feedback. It helps us to improve continuously.\n"
+"                                <br/><span style=\"margin: 0px 0px 0px 0px; font-size: 12px; opacity: 0.5; color: #454748;\">This customer survey has been sent because your Job Card has been moved to the stage <b><span t-out=\"object.state\"/></b></span>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div>\n"
+"                <t t-set=\"access_token\" t-value=\"object._rating_get_access_token()\"/>\n"
+"                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                Ciao <b><span t-out=\"object.customer_id.name or ''\"/></b>,\n"
+"                                <br/>\n"
+"                                <br/>\n"
+"                               Ti preghiamo di prenderti un momento per valutare i nostri servizi relativi alla Job Card \"\n"
+"                                <strong>\n"
+"                                    <span t-out=\"object.name\"/>\n"
+"                                </strong>\n"
+"                                \"\n"
+"                                <t t-if=\"object.user_id\">\n"
+"                                   creato da\n"
+"                                    <strong>\n"
+"                                        <span t-out=\"object.user_id.name\"/>\n"
+"                                    </strong>\n"
+"                                    .\n"
+"                                    <br/>\n"
+"                                </t>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"text-align: center;\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" style=\"width:100%; margin: 32px 0px 32px 0px;\">\n"
+"                                    <tr>\n"
+"                                        <td style=\"font-size: 13px;\">\n"
+"                                            <strong>Raccontaci cosa pensi del nostro servizio</strong>\n"
+"                                            <br/>\n"
+"                                            <span style=\"text-color: #888888\">(clicca su una di queste faccine)</span>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td style=\"font-size: 13px;\">\n"
+"                                            <table style=\"width:100%;text-align:center;\">\n"
+"                                                <tr>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/rate/{{ access_token }}/5\">\n"
+"                                                            <img alt=\"Soddisfatto\" src=\"/rating/static/src/img/rating_5.png\" title=\"Soddisfatto\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/rate/{{ access_token }}/3\">\n"
+"                                                            <img alt=\"Non soddisfatto\" src=\"/rating/static/src/img/rating_3.png\" title=\"Non soddisfatto\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/rate/{{ access_token }}/1\">\n"
+"                                                            <img alt=\"Molto insoddisfatto\" src=\"/rating/static/src/img/rating_1.png\" title=\"Molto insoddisfatto\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td valign=\"top\" style=\"font-size: 13px;\">\n"
+"                                Apprezziamo il tuo feedback. Ci aiuta a migliorare costantemente.\n"
+"                                <br/><span style=\"margin: 0px 0px 0px 0px; font-size: 12px; opacity: 0.5; color: #454748;\">Questo sondaggio clienti è stato inviato perché la tua scheda lavoro è stata spostata nella fase <b><span t-out=\"object.state\"/></b></span>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
+
+
+#. module: dev_garage_management
+#: model:mail.template,body_html:dev_garage_management.customer_email_template_garage_job_closed
+msgid ""
+"<p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                     Dear <b><span t-esc=\"object.customer_id.name or ''\"/></b>,\n"
+"                    <br/><br/>\n"
+"                   </p><p> Your repair request of job card number<b> <span t-esc=\"object.name or ''\"/> </b> is done, </p>\n"
+"                   <p>  so we have closed your request now. </p>\n"
+"                   <p> We also attached the report of your job card.</p>\n"
+"                   <br/>\n"
+"                   <p>  Thanks For Your Participation...! </p>\n"
+"                    <br/>\n"
+"                   <p> You can reply to this email if you have any questions.</p>\n"
+"                   <p>  Thank you... </p>\n"
+"                    <br/>\n"
+"                \n"
+"\n"
+"\n"
+"                "
+msgstr ""
+"<p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                     Caro <b><span t-esc=\"object.customer_id.name or ''\"/></b>,\n"
+"                    <br/><br/>\n"
+"                   </p><p> La tua richiesta di riparazione del numero della scheda di lavoro<b> <span t-esc=\"object.name or ''\"/> </b> è fatto, </p>\n"
+"                   <p>  pertanto abbiamo chiuso la tua richiesta. </p>\n"
+"                   <p>Alleghiamo anche il rapporto sulla tua scheda di lavoro.</p>\n"
+"                   <br/>\n"
+"                   <p>  Grazie per la partecipazione...! </p>\n"
+"                    <br/>\n"
+"                   <p>Se hai domande puoi rispondere a questa email.</p>\n"
+"                   <p>  Grazie... </p>\n"
+"                    <br/>\n"
+"                \n"
+"\n"
+"\n"
+"                "
+
+
+#. module: dev_garage_management
+#: model:mail.template,body_html:dev_garage_management.customer_service_renew_garage_template
+msgid ""
+"<p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                     Dear <span t-esc=\"object.customer_id.name or ''\"/>,\n"
+"                    <br/><br/>\n"
+"                   </p><p> Your repair request of job card number<b> <span t-esc=\"object.name or ''\"/> </b> is done on <span t-esc=\"object.request_date or ''\"/> </p>\n"
+"                   <p>  now it's been <span t-esc=\"object.company_id.month_duration or ''\"/> months from your last service date</p>\n"
+"                   <br/>\n"
+"                   <p>  So, We request you to service your vehicle </p>\n"
+"                    <br/>\n"
+"                   <p> If you have any questions regarding the renewal process or need help, please don't hesitate to contact us.</p>\n"
+"                   <p> Thank you... </p>\n"
+"                    <br/>\n"
+"                \n"
+"\n"
+"\n"
+"                "
+msgstr ""
+"<p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                     Caro <span t-esc=\"object.customer_id.name or ''\"/>,\n"
+"                    <br/><br/>\n"
+"                   </p><p>La tua richiesta di riparazione del numero della scheda di lavoro<b> <span t-esc=\"object.name or ''\"/> </b> è fatto su <span t-esc=\"object.request_date or ''\"/> </p>\n"
+"                   <p> ora è stato <span t-esc=\"object.company_id.month_duration or ''\"/> mesi dalla data dell'ultimo servizio</p>\n"
+"                   <br/>\n"
+"                   <p> Pertanto, ti chiediamo di effettuare la manutenzione del tuo veicolo </p>\n"
+"                    <br/>\n"
+"                   <p>Se hai domande in merito al processo di rinnovo o hai bisogno di aiuto, non esitare a contattarci.</p>\n"
+"                   <p> Grazie... </p>\n"
+"                    <br/>\n"
+"                \n"
+"\n"
+"\n"
+"                "
+
+#. module: dev_garage_management
+#: model:ir.actions.server,name:dev_garage_management.cron_notify_renew_service_garage_ir_actions_server
+#: model:mail.template,name:dev_garage_management.customer_service_renew_garage_template
+#: model:mail.template,subject:dev_garage_management.customer_service_renew_garage_template
+msgid "Service Renew Notification"
+msgstr "Servizio rinnovare la notifica"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_lead__service_type_id
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__service_type_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Service Type"
+msgstr "Tipo di servizio"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_dev_fleet_service_type
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_fleet_service_type
+msgid "Service Types"
+msgstr "Tipi di servizio"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_dev_machine_service
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_machine_service
+msgid "Services"
+msgstr "Servizi"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Set To Draft"
+msgstr "Impostato su Draft"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_config_dev_garage_management
+#: model:ir.ui.menu,name:dev_garage_management.menu_config_dev_garage_management
+msgid "Settings"
+msgstr "Impostazioni"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__source_id
+msgid "Source"
+msgstr "Fonte"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Stage"
+msgstr "Palcoscenico"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_job_card_history__start_date
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_sale_history__start_date
+msgid "Start Date"
+msgstr "Data di inizio"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+msgid "State"
+msgstr "Stato"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__state
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Status"
+msgstr "Stato"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Stato basato sulle attività\n"
+"In ritardo: la data di scadenza è già passata\n"
+"Oggi: la data di attività è oggi\n"
+"Pianificato: attività future."
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "Submit"
+msgstr "Invia"
+#. module: dev_garage_management
+#: model:ir.model,name:dev_garage_management.model_project_task
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__task_id
+msgid "Task"
+msgstr "Compito"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__team_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Team"
+msgstr "Squadra"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_crm_team_form
+msgid "Team Members"
+msgstr "Membri del team"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__user_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Technician"
+msgstr "Tecnico"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "Technician Information"
+msgstr "Informazioni sui tecnici"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_submitted_greeting
+msgid "Thank You!"
+msgstr "Grazie!"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+msgid "There are currently no Job Card for your account."
+msgstr "Al momento non ci sono carte di lavoro per il tuo account."
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "This Month"
+msgstr "Questo mese"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "This Week"
+msgstr "Questa settimana"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "This Year"
+msgstr "Quest'anno"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/__init__.py:0
+msgid "This application can be installed only on Odoo version 18.0"
+msgstr "Questa applicazione può essere installata solo su Odoo versione 18.0"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr ""
+"Questo è un nome che ti aiuta a tenere traccia dei tuoi diversi sforzi della"
+" campagna, ad es.Fall_Drive, Christmas_Special"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr ""
+"Questo è il metodo di consegna, ad es.Cartolina, e -mail o banner "
+"pubblicitario"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr ""
+"Questa è la fonte del collegamento, ad es.Motore di ricerca, un altro "
+"dominio o nome della lista e -mail"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Timesheet"
+msgstr "Scheda attività"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+msgid "Timesheet Information"
+msgstr "Informazioni sulla scheda attività"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__timesheet_lines
+msgid "Timesheet Lines"
+msgstr "Linee di schede"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Today"
+msgstr "Oggi"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_project_task__task_type
+msgid "Type"
+msgstr "Tipa"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo di attività di eccezione registrata."
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request_product_lines__uom_id
+#: model:ir.model.fields,field_description:dev_garage_management.field_service_product_lines__uom_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+msgid "UOM"
+msgstr "Uom"
+#. module: dev_garage_management
+#: model:res.groups,name:dev_garage_management.group_machine_user
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_report_template
+msgid "User"
+msgstr "Utente"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_product__is_machine
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_template__is_machine
+msgid "Vehicle"
+msgstr "Veicolo"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_garage_vehicle_diagnosis
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_garage_vehicle_diagnosis
+#: model_terms:ir.actions.act_window,help:dev_garage_management.action_garage_vehicle_diagnosis
+msgid "Vehicle Diagnosis"
+msgstr "Diagnosi del veicolo"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_lead_garage_manage
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_portal_content
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Vehicle Information"
+msgstr "Informazioni sul veicolo"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_lead__product_id
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__product_id
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.portal_my_repair_request
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Vehicle Model"
+msgstr "Modello del veicolo"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_crm_lead__machine_name
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__machine_name
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "Vehicle Name"
+msgstr "Nome del veicolo"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_machine_repair_requst_filter
+msgid "Vehicle Number"
+msgstr "Numero del veicolo"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_product__is_machine_part
+#: model:ir.model.fields,field_description:dev_garage_management.field_product_template__is_machine_part
+msgid "Vehicle Part"
+msgstr "Parte del veicolo"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_repaire_machine_parts
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_machine_parts
+msgid "Vehicle Parts"
+msgstr "Parti del veicolo"
+#. module: dev_garage_management
+#: model:mail.template,name:dev_garage_management.rating_service_request_email_template
+msgid "Vehicle Service: Rating Request"
+msgstr "Servizio del veicolo: richiesta di valutazione"
+#. module: dev_garage_management
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_repair_machine
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_repair_machine_tree
+msgid "Vehicles"
+msgstr "Veicoli"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_garage_vehicle_model
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_garage_vehicle_model
+msgid "Vehicles Model"
+msgstr "Modello di veicoli"
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_create_purchase__partner_id
+msgid "Vendor"
+msgstr "Venditore"
+#. module: dev_garage_management
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__dev_repair_request__priority__3
+msgid "Very High"
+msgstr "Molto alto"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_submitted_greeting
+msgid "We will get back to you shortly."
+msgstr "Ti torneremo a breve."
+#. module: dev_garage_management
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__website_message_ids
+msgid "Website Messages"
+msgstr "Messaggi del sito web"
+#. module: dev_garage_management
+#: model:ir.model.fields,help:dev_garage_management.field_dev_repair_request__website_message_ids
+msgid "Website communication history"
+msgstr "Storia di comunicazione del sito Web"
+#. module: dev_garage_management
+#: model:ir.actions.act_window,name:dev_garage_management.action_garage_vehicle_work_order
+#: model:ir.model.fields,field_description:dev_garage_management.field_dev_repair_request__workorder_id
+#: model:ir.model.fields.selection,name:dev_garage_management.selection__project_task__task_type__work_order
+#: model:ir.ui.menu,name:dev_garage_management.menu_dev_garage_work_order
+msgid "Work Order"
+msgstr "Ordine di lavoro"
+#. module: dev_garage_management
+#: model_terms:ir.actions.act_window,help:dev_garage_management.action_garage_vehicle_work_order
+msgid "Work Orders"
+msgstr "Ordini di lavoro"
+#. module: dev_garage_management
+#. odoo-python
+#: code:addons/dev_garage_management/controller/portal.py:0
+msgid "Yesterday"
+msgstr "Ieri"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_submitted_greeting
+msgid "Your repair request is submitted successfully."
+msgstr "La tua richiesta di riparazione viene inviata correttamente."
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.machine_repair_card_body_template
+msgid "barcode"
+msgstr "codice a barre"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "img"
+msgstr "img"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.repair_request_form
+msgid "mitchell@odoo.com"
+msgstr "mitchell@odoo.com"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_job_card_history_wizard
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.form_product_sale_history_wizard
+msgid "or"
+msgstr "O"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_project_task_diagnosys_form
+msgid "price"
+msgstr "prezzo"
+#. module: dev_garage_management
+#: model_terms:ir.ui.view,arch_db:dev_garage_management.view_dev_repair_request_form
+msgid "unit_amount"
+msgstr "unità_amount"
+#. module: dev_garage_management
+#: model:res.groups,comment:dev_garage_management.group_machine_manager
+msgid "user will access all Machine Repair Details."
+msgstr "L'utente accederà a tutti i dettagli di riparazione della macchina."
+#. module: dev_garage_management
+#: model:res.groups,comment:dev_garage_management.group_machine_user
+msgid "user will have access own Machine Repair Details."
+msgstr "L'utente avrà i dettagli di riparazione della macchina dell'accesso."
+#. module: dev_garage_management
+#: model:mail.template,subject:dev_garage_management.rating_service_request_email_template
+msgid ""
+"{{object.name}}: Rate Our Vehicle Repair Service and Help Us Serve You "
+"Better"
+msgstr ""
+"{{object.name}}: valuta il nostro servizio di riparazione del veicolo e "
+"aiutaci a servirti meglio"

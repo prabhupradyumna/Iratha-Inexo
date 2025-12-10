@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2018 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <template id="machine_repair_report_template">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <style>
+                    table .my_table{
+                        width:100%;
+                        font-size:13px;
+                    }
+                    .my_table td{
+                        padding:10px;
+                    }
+                    .my_time_table th{
+                        padding:10px;
+                        border-bottom:1px solid #f5f5f5;
+                    }
+                    .my_time_table td{
+                        padding:10px;
+                        border-bottom:1px solid #f5f5f5;
+                    }
+                </style>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h3><span t-field="o.name"/> - <span t-field="o.desc"/>  [ <span t-field="o.state"/> ]</h3>
+                        <br/>
+                    </div>
+                </div>
+                <!-- Clinet Details-->
+                <div class="row">
+                    <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                        <h4>Client Information</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <table width="100%" class="my_table">
+                        <tr>
+                            <td style="width:10%"><b>Name</b></td>
+                            <td colspan="3"><span t-field="o.customer_id"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:10%"><b>Phone</b></td>
+                            <td style="width:40%"><span t-field="o.phone"/></td>
+                            <td style="width:10%"><b>Email</b></td>
+                            <td style="width:40%"><span t-field="o.email"/></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                
+                <!-- Machine Details-->
+                <div class="row">
+                    <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                        <br/><br/>
+                        <h4>Machine Information</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <table width="100%" class="my_table">
+                        <tr>
+                            <td style="width:15%"><b>Vehicle Model</b></td>
+                            <td style="width:35%">
+                                <t t-if="o.product_id">
+                                    <span t-field="o.product_id.name"/>
+                                </t>
+                                <t t-if="not o.product_id">
+                                    <span t-field="o.machine_name"/>
+                                </t>
+                            </td>
+                            <td style="width:15%"><b>Brand</b></td>
+                            <td style="width:35%"><span t-field="o.brand"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>Vehicle No</b></td>
+                            <td><span t-field="o.vehicle_number"/></td>
+                            <td><b>Meter Reading</b></td>
+                            <td><span t-field="o.vehicle_meter"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Service</b></td>
+                            <td style="width:35%"><span t-field="o.service_id"/></td>
+                            <td style="width:15%"><b>Man. Year</b></td>
+                            <td style="width:35%"><span t-field="o.machine_year"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Service Type</b></td>
+                            <td style="width:35%"><span t-field="o.service_type_id"/></td>
+                            <td style="width:15%"></td>
+                            <td style="width:35%"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Demage</b></td>
+                            <td colspan="3"><span t-field="o.demage"/></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                
+                <!-- Technician Details-->
+                <div class="row">
+                    <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                        <br/><br/>
+                        <h4>Technician Information</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <table width="100%" class="my_table">
+                        <tr>
+                            <td style="width:15%"><b>Technician</b></td>
+                            <td style="width:35%"><span t-field="o.user_id.name"/></td>
+                            <td style="width:15%"><b>Team</b></td>
+                            <td style="width:35%"><span t-field="o.team_id"/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Company</b></td>
+                            <td style="width:35%"><span t-field="o.company_id"/></td>
+                            <td style="width:15%"></td>
+                            <td style="width:35%"></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Other Details-->
+                <div class="row">
+                    <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                        <br/><br/>
+                        <h4>Other Information</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <table width="100%" class="my_table">
+                        <tr>
+                            <td style="width:15%"><b>Request Date</b></td>
+                            <td style="width:35%"><span t-field="o.request_date" t-options ='{"format": "dd-MM-yyyy"}'/></td>
+                            <td style="width:15%"><b>Close Date</b></td>
+                            <td style="width:35%"><span t-field="o.close_date" t-options ='{"format": "dd-MM-yyyy"}'/></td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Is Repaired</b></td>
+                            <td style="width:35%">
+                                <t t-if="o.is_repair">
+                                    <i style="color:green" class="fa fa-check" />
+                                </t>    
+                                <t t-if="not o.is_repair">
+                                    <i style="color:red" class="fa fa-times" />
+                                </t>
+                            </td>
+                            <td style="width:15%"> <b>Duration</b></td>
+                            <td style="width:35%"><span t-field="o.duration"/> Hours</td>
+                        </tr>
+                        <tr>
+                            <td style="width:15%"><b>Priority</b></td>
+                            <td colspan="3" style="color:gold;font-size:20px;">
+                                <t t-foreach="o.get_priority()" t-as="p">
+                                    <i class="fa fa-star"></i>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <p style="page-break-after:always"></p>
+                <!-- Timesheet Details-->
+                <t t-if="o.timesheet_lines">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%" class="my_time_table" style="page-break-inside: avoid">
+                                <thead>
+                                    <tr style="border-bottom:1px solid #f5f5f5">
+                                        <th class="text-left" style="text-align:left;color:black;" colspan="4"><br/><br/>
+                                            <h4>Timesheet Information</h4>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left" style="width:20%;text-align:left;color:black;">Date</th>
+                                        <th class="text-left" style="width:20%;text-align:left;color:black;">User</th>
+                                        <th class="text-left" style="width:40%;text-align:left;color:black;">Description</th>
+                                        <th class="text-right" style="width:20%;text-align:right;color:black;">Hours</th>
+                                    </tr>
+                                </thead>
+                                <t t-set="total_hour" t-value="0"/>
+                                <tbody>
+                                    <tr t-foreach="o.timesheet_lines" t-as="line" style="page-break-inside: avoid">
+                                        <t t-set="total_hour" t-value="total_hour + line.unit_amount"/>
+                                        <td class="text-left" style="width:20%;text-align:left;">
+                                            <span t-field="line.date" t-options ='{"format": "dd-MM-yyyy"}'/>
+                                        </td>
+                                        <td class="text-left" style="width:20%;text-align:left;"><span t-field="line.user_id"/></td>
+                                        <td class="text-left" style="width:40%;text-align:left;"><span t-field="line.name"/></td>
+                                        <td class="text-right" style="width:20%;text-align:right;"><span t-esc="'%.2f'%(line.unit_amount)"/></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="text-right" style="text-align:right;" colspan="3"> <b>Hours Spent :</b></td>
+                                        <td class="text-right" style="text-align:right;"> <b><span t-esc="'%.2f'%(total_hour)"/></b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+                
+                <t t-if="o.product_lines">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%" class="my_time_table" style="page-break-inside: avoid">
+                                <thead>
+                                    <tr style="border-bottom:1px solid #f5f5f5">
+                                        <th class="text-left" style="text-align:left;color:black;" colspan="5"><br/><br/>
+                                            <h4>Consume Product Information</h4>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left" style="width:25%;text-align:left;color:black;">Product</th>
+                                        <th class="text-left" style="width:30%;text-align:left;color:black;">Description</th>
+                                        <th class="text-left" style="width:15%;text-align:left;color:black;">Quantity</th>
+                                        <th class="text-center" style="width:15%;text-align:center;color:black;">UOM</th>
+                                        <th class="text-right" style="width:15%;text-align:right;color:black;">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="total_price" t-value="0"/>
+                                    <tr t-foreach="o.product_lines" t-as="line" style="page-break-inside: avoid">
+                                        <t t-set="total_price" t-value="line.price + total_price"/>
+                                        <td class="text-left" style="text-align:left;">
+                                            <span t-field="line.product_id"/>
+                                        </td>
+                                        <td class="text-left" style="text-align:left;">
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td class="text-left" style="text-align:left;">
+                                            <span t-esc="'%.2f'%(line.quantity)"/>
+                                        </td>
+                                        <td class="text-center" style="text-align:center;">
+                                            <span t-field="line.uom_id"/>
+                                        </td>
+                                        <td class="text-right" style="text-align:right;">
+                                            <span t-field="line.price" t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-right" style="text-align:right;"> <b>Total :</b> </td>
+                                        <td class="text-right" style="text-align:right;">
+                                            <b><span t-esc="total_price" t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'/></b>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+                
+                <t t-if="o.instruction_lines">
+                    <div class="row">
+                        <div class="col-12">
+                            <table width="100%" class="my_time_table" style="page-break-inside: avoid">
+                                <thead>
+                                    <tr style="border-bottom:1px solid #f5f5f5">
+                                        <th class="text-left" style="text-align:left;color:black;" colspan="5"><br/><br/>
+                                            <h4>Service Inspection</h4>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-left" style="width:75%;text-align:left;color:black;">Inspection</th>
+                                        <th class="text-left" style="width:25%;text-align:left;color:black;">Checked</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.instruction_lines" t-as="line" style="page-break-inside: avoid">
+                                        <td class="text-left" style="text-align:left;">
+                                            <span t-field="line.instruction_id"/>
+                                        </td>
+                                        <td class="text-left" style="text-align:left;">
+                                            <t t-if="line.is_check">
+                                                <i style="color:green" class="fa fa-check" />
+                                            </t>    
+                                            <t t-if="not line.is_check">
+                                                <i style="color:red" class="fa fa-times" />
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+                
+                
+                <t t-if="o.notes">
+                    <div class="row">
+                        <div class="col-12" style="border-bottom:1px solid #f5f5f5">
+                            <br/><br/>
+                            <h4>Description</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <br/>
+                            <span t-field="o.notes"/>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="machine_repair_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="dev_garage_management.machine_repair_report_template"/>
+            </t>
+        </t>
+    </template>
+</odoo>

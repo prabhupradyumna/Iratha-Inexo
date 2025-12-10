@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+    <template id="job_card_history_report_body">
+         <t t-call="web.external_layout">
+            <div class="page" style="font-size: 12px;">
+                <span style="font-size: 18px;font-weight: bold;">
+                    <center>Job Card History</center>
+                </span>
+                <table width="100%" style="font-size: 14px;margin-top: 20px;">
+                      <td>
+                         <b>Start Date:</b>&#160;:&#160;
+                         <span t-field="o.start_date" t-options='{"format": "dd/MM/yyyy"}'/>
+                      </td>
+                      <td style="text-align:right;">
+                          <b>End Date:</b>&#160;:&#160;
+                         <span t-field="o.end_date" t-options='{"format": "dd/MM/yyyy"}'/>
+                     </td>
+                </table>
+                <table width="100%" style="table-layout: fixed;margin-top:20px;" class="table table-condensed">  
+
+                    <tr style="word-wrap: break-word;line-height: 12px;">
+                        <td width="25%" style="border-bottom: 2px solid black;border-top: 1px solid white;">
+                                <b>Number</b>
+                        </td>
+                        <td width="30%" style="border-bottom: 2px solid black;border-top: 1px solid white;">
+                                <b>Customer</b>
+                        </td>
+                        <td width="25%" style="border-bottom: 2px solid black;border-top: 1px solid white;">
+                                <b>Request Date</b>
+                        </td>
+                        <td width="25%" style="border-bottom: 2px solid black;border-top: 1px solid white;">
+                                <b>Close Date</b>
+                        </td>
+                        <td width="30%" style="border-bottom: 2px solid black;border-top: 1px solid white;" >
+                                <b>Vehicle</b>
+                        </td>
+                        <td width="30%" style="border-bottom: 2px solid black;border-top: 1px solid white;" >
+                                <b>Service</b>
+                        </td>
+                        <td width="20%" style="border-bottom: 2px solid black;border-top: 1px solid white;">
+                                <b>Status</b>
+                        </td>
+                   </tr>
+               
+               <tr t-foreach="job_card_history(o)" t-as="line">
+                    <td><span t-esc="line.name"/></td>
+                    <td><span t-esc="line.customer_id.name"/></td>
+                    <td><span t-field="line.request_date" t-options='{"format": "dd/MM/yyyy"}'/></td>
+                    <td><span t-field="line.close_date" t-options='{"format": "dd/MM/yyyy"}'/></td>
+                    <td><span t-esc="line.product_id.name"/></td>
+                    <td><span t-esc="line.service_id.name"/></td>
+                    <td>
+                         <t t-if='line.state == "draft"'>
+                                Draft
+                            </t>
+                            <t t-elif="line.state == 'confirm'">
+                                Confirmed
+                            </t>
+                            <t t-elif="line.state == 'assign'">
+                                Assigned
+                            </t>
+                            <t t-elif="line.state == 'in_progress'">
+                                In Progress
+                            </t>
+                            <t t-elif="line.state == 'done'">
+                               Done
+                            </t>
+                            <t t-else="line.state == 'cancel'">
+                                Cancelled
+                            </t>
+                    </td>
+                </tr>
+            </table>
+
+          </div>
+        </t>
+    </template>
+
+    <template id="job_card_history_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="dev_garage_management.job_card_history_report_body"/>
+            </t>
+       </t>
+    </template>
+</odoo>
+
+
+
+

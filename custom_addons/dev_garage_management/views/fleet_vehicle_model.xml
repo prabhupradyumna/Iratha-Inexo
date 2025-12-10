@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+
+    <record id="action_garage_vehicle_model" model="ir.actions.act_window">
+        <field name="name">Vehicles Model</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fleet.vehicle.model</field>
+        <field name="context">{"search_default_groupby_brand" : True,}</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem name="Vehicles Model"
+              id="menu_dev_garage_vehicle_model"
+              parent="dev_garage_management.menu_dev_repair_machine"
+              action="action_garage_vehicle_model"
+              sequence="1"/>
+
+</odoo>

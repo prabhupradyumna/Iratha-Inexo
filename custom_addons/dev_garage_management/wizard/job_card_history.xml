@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <!--form-->
+    <record id="form_job_card_history_wizard" model="ir.ui.view">
+        <field name="name">form.job.card.history.wizard</field>
+        <field name="model">job.card.history</field>
+        <field name="arch" type="xml">
+            <form string="Job Card History Report">
+                <group>
+                    <group>
+                        <field name="start_date"/>
+                    </group>
+                    <group>
+                        <field name="end_date" />
+                    </group>
+                </group>
+                <footer>
+                    <button string="Print PDF" name="print_job_card_history_report" type="object" class="oe_highlight"/>
+                    &#160;or&#160;
+                    <button string="Close Window" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!--action-->
+    <record id="action_job_card_history" model="ir.actions.act_window">
+        <field name="name">Job Card History</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">job.card.history</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="form_job_card_history_wizard"/>
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem name="Job Card History"
+              id="menu_job_card_history"
+              parent="dev_garage_management.menu_dev_garage_reporting"
+              action="action_job_card_history"
+              sequence="2"
+              />
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+    <record id="view_dev_machine_instruction_tree" model="ir.ui.view">
+        <field name="name">view.dev.machine.instruction.tree</field>
+        <field name="model">dev.machine.instruction</field>
+        <field name="arch" type="xml">
+            <list string="Machine Instruction" editable="top">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="action_dev_machine_instruction" model="ir.actions.act_window">
+        <field name="name">Inspection</field>
+        <field name="res_model">dev.machine.instruction</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <menuitem name="Inspection" id="menu_dev_machine_instruction" parent="dev_garage_management.menu_garage_inspection_configure" action="action_dev_machine_instruction" sequence="1"/>
+    
+</odoo>

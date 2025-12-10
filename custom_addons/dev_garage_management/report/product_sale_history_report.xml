@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+
+    <template id="product_sale_history_report_body">
+        <t t-call="web.external_layout">
+            <div class="page" style="font-size: 12px;">
+                <span style="font-size: 18px;font-weight: bold;">
+                    <center>Product Sale History</center>
+                </span>
+                <table width="100%" style="font-size: 14px;margin-top: 20px;">
+                    <tr>
+                        <td>
+                            <b>Start Date</b>&#160;:&#160;
+                            <span t-field="o.start_date" t-options='{"format": "dd/MM/yyyy"}'/>
+                        </td>
+                        <td style="text-align:right;">
+                            <b>End Date</b>&#160;:&#160;
+                            <span t-field="o.end_date" t-options='{"format": "dd/MM/yyyy"}'/>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%" style="table-layout: fixed;margin-top:20px;font-size: 14px;" class="table table-condensed">
+                    <tr style="font-size:16px;border:2px solid white;">
+                         <td style="border-top:2px black solid;border-bottom:2px black solid;border-right:white;background-color:#D3D3D3;"><b> Product </b> </td>
+                         <td style="border-top:2px black solid;border-bottom:2px black solid;border-right:white;background-color:#D3D3D3;text-align:center;" ><b> Quantity </b></td>
+                         <tr t-foreach="product_sale_history(o)" t-as="line">
+                             <tr style="border:white;" >
+                                 <td style="border:white;" ><b> <span t-esc="line['product'].capitalize()" /></b> </td>
+                                 <td style="border:white;text-align:center;" ><b><span t-esc="line['quantity']" /></b></td>
+                             </tr>
+                         </tr>
+                    </tr>
+               </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="product_sale_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="dev_garage_management.product_sale_history_report_body"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+
+
+
+

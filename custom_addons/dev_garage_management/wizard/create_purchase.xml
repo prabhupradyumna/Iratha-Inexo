@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <record id="dev_view_create_purchase_form" model="ir.ui.view">
+        <field name="name">dev.view.create.purchase.form</field>
+        <field name="model">create.purchase</field>
+        <field name="arch" type="xml">
+            <form string="Add Vendor">
+                <group>
+                    <group>
+                        <field name="partner_id"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                       <field name="product_ids" domain="[('is_machine_part','=',True),('type','!=','service')]" widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Create" name="action_create_purchase_order" type="object"
+                            class="oe_highlight"/>
+                    <button string="Close Window" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dev_view_create_purchase" model="ir.actions.act_window">
+        <field name="name">Create RFQ</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">create.purchase</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="dev_view_create_purchase_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

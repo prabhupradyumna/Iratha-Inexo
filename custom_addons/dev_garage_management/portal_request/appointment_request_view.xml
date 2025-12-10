@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="website_appointment_requests" name="Appointment Request Form" customize_show="True">
+        <style>
+
+        
+            .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            }
+
+            .circle-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            }
+
+            .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: lightgray;
+            color: white;
+            font-size: 20px;
+            font-weight: normal;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            z-index: 1;
+            }
+            .circle1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            font-weight: normal;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            z-index: 1;
+            }
+            .circle_text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 40px;
+            background-color: white;
+            color: lightgray;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top:10px;
+            }
+            .circle_text_service {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 40px;
+            background-color: white;
+            color: black;
+            font-size: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            z-index: 1;
+            }
+
+            .line {
+            flex: 1;
+            height: 5px;
+            background-color: lightgray;
+            margin: 0 -15px;
+            transition: background-color 0.3s;
+            }
+            .line_text {
+            flex: 1;
+            height: 5px;
+            background-color: white;
+            margin: 0 -15px;
+            transition: background-color 0.3s;
+            }
+
+
+            .text {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: normal;
+            color: lightgray;
+            text-align: center;
+            }
+            .service-item:hover {
+            background: #f8f9fa;
+            transform: scale(1.02);
+            transition: 0.3s ease-in-out;
+            }
+
+            /* Button Styles with Gradient */
+            .btn_1 {
+            background-image: linear-gradient(45deg, #007bff, #00c6ff); /* Gradient from blue to light blue */
+            border: none; /* Remove border */
+            color: white; /* Text color */
+            padding: 10px 20px; /* Padding for the button */
+            font-size: 16px; /* Font size */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-image 0.3s, transform 0.3s; /* Transition effects */
+            }
+
+            .btn_1:hover {
+            background-image: linear-gradient(45deg, #0056b3, #00aaff); /* Darker gradient on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            }
+
+        </style>
+        <t t-call="website.layout">
+            <div class="container mt-4">
+                <div id="multiStepForm">
+                    <!-- 1st Form -->
+                    <!-- <div>
+                        <div class="circle-container">
+                            <div class="circle1" id="step-1">1</div>
+                            <div class="line"></div>
+                            <div class="circle" id="step-2">2</div>
+                            <div class="line"></div>
+                            <div class="circle" id="step-3">3</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="circle-container">
+                            <div class="circle_text_service">Services</div>
+                            <div class="line_text"></div>
+                            <div class="circle_text" style="font-size: 16px;">Time Slots</div>
+                            <div class="line_text"></div>
+                            <div class="circle_text">Details</div>
+                        </div>
+                    </div> -->
+
+
+                    <form id="appointmentForm" action="/general_appointment" method="POST" class="form-step active">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="appointment_id" id="appointment_id_hidden" value="appointment_id"/>
+
+                        <table width="50%" id="serviceDetailsHeader"
+                               style="table-layout: fixed; font-size: 11px; border: 1px solid; box-shadow: 1px 1px 10px black; margin-top: 10px; border-radius: 6px 6px 7px 7px;"
+                               class="table table-condensed">
+                        </table>
+
+                        <table style="width: 100%;">
+                            <tr>
+                                <div class="row" style="width: 100%;">
+                                    <t t-foreach="appointments" t-as="appt">
+                                        <div class="col-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
+                                            <div class="card shadow-sm text-center"
+                                                 style="width: 100%; max-width: 250px; border-radius: 8px; overflow: hidden;">
+                                                <!-- Image -->
+                                                <img t-att-src="'/web/image?model=dc.dentist.speciality&amp;id=' + str(appt.id) + '&amp;field=image_1920'"
+                                                     alt="Appointment Image"
+                                                     style="width: 100%; height: 150px; object-fit: cover;"/>
+
+                                                <!-- Card Body -->
+                                                <div class="card-body d-flex flex-column align-items-center">
+                                                    <h5 class="card-title mt-2" t-esc="appt.name"/>
+
+                                                    <!-- Location and Duration -->
+                                                    <div class="d-flex align-items-center justify-content-center text-muted"
+                                                         style="font-size: 13px;">
+                                                        <i class="fa fa-map-marker"></i>
+                                                        <span t-esc="appt.location"/>
+                                                        <!--                                                        <span class="mx-1">•</span>-->
+                                                        <!--                                                        <span t-esc="appt.duration"/>-->
+                                                    </div>
+
+                                                    <!-- Fee -->
+                                                    <div class="text-primary mt-2" style="font-weight: 600;">
+                                                        <t t-esc="str(appt.service_charge_amount)"/>
+                                                    </div>
+
+                                                    <!-- Button -->
+                                                    <button class="btn btn-primary mt-2 time-slot"
+                                                            type="button"
+                                                            t-att-data-appointment-id="appt.id">
+                                                        Book Now
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+
+                            </tr>
+                        </table>
+                    </form>
+
+
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="website_appointment_requests_form2" name="Appointment Request Form"
+              customize_show="True">
+    <t t-call="website.layout">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"></link>
+        <style>
+
+            /* Hero Section */
+                .hero {
+                    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('dev_garage_management/static/src/img/people-spending-time-gas-station.jpg') center/cover no-repeat;
+                    color: white;
+                    padding: 180px 0 120px;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                }
+                
+                                
+                
+                .hero-content {
+                    position: relative;
+                    z-index: 2;
+                }
+                
+                .hero h1 {
+                    font-size: 3.5rem;
+                    font-weight: 700;
+                    margin-bottom: 25px;
+                    line-height: 1.2;
+                    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                }
+                
+                .hero p {
+                    font-size: 1.35rem;
+                    max-width: 700px;
+                    margin: 0 auto 40px;
+                    opacity: 0.9;
+                }
+                
+                .hero-btns .btn {
+                    margin: 0 10px;
+                    padding: 12px 30px;
+                    font-weight: 500;
+                    border-radius: 50px;
+                }
+                
+                .hero-btns .btn-light {
+                    background-color: white;
+                    color: #2a7fba;
+                }
+                
+                .hero-btns .btn-light:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 0px 10px rgba(255, 255, 255, 1);
+                    background-color:white;
+                    color: #2a7fba;
+                }
+                
+                .hero-btns .btn-outline-light {
+                    border-width: 2px;
+                }
+
+
+            html {
+                scroll-behavior: smooth;
+                }
+
+
+
+
+            /* Container for the entire page */
+            <!-- .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            } -->
+
+            .appointment-card {
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .btn-circle {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .appointment-image {
+        width: 80px;
+        height: 80px;
+        
+    }
+    
+    .appointment-name {
+        font-size: 1.125rem;
+        color: #333;
+        font-weight: 600;
+    }
+    
+    .appointment-location {
+        font-size: 0.875rem;
+    }
+    
+    .booking-info {
+        text-align: right;
+    }
+    
+    .info-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+    }
+    
+    .info-detail {
+        font-size: 0.875rem;
+        color: #444;
+    }
+
+            .circle-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            }
+
+            .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            font-weight: normal;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            z-index: 1;
+            }
+            .circle_3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: lightgray;
+            color: white;
+            font-size: 20px;
+            font-weight: normal;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            z-index: 1;
+            }
+            .line_1{
+            flex: 1;
+            height: 5px;
+            background-color: black;
+            margin: 0 -15px;
+            transition: background-color 0.3s;
+            }
+            .line {
+            flex: 1;
+            height: 5px;
+            background-color: lightgray;
+            margin: 0 -15px;
+            transition: background-color 0.3s;
+            }
+            .calendar-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            }
+            .circle_text_slot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 40px;
+            background-color: white;
+            color: black;
+            font-size: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+            z-index: 1;
+            }
+
+            .circle_text {
+            background-color: white;
+            color: lightgray;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 10px;
+            }
+
+            /* Adjust button styles */
+            .btn_1 {
+            background: linear-gradient(45deg, #007bff, #00c6ff);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            z-index: 2;
+            position: relative;
+            }
+
+            .btn_1:hover {
+            background-color: #0056b3;
+            }
+
+            /* Layout for calendar and time slots */
+            .form-step {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            }
+
+            .service-item-container {
+            margin-bottom: 20px; /* Add space between service and calendar/time slots */
+            }
+
+            .form-step-inner {
+            display: flex;
+            justify-content: space-between;
+            }
+
+            .calendar-container, .time-slots-container {
+            flex: 1;
+            margin-right: 20px; /* Space between calendar and slots */
+            
+            }
+
+            /* Custom styles for the time slots */
+            .time-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 160px;
+            }
+
+            .time-slot {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 4px;
+            text-align: center;
+            width: 100%;
+            background-color: #f0f0f0;
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            }
+
+            .time-slot:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+            }
+            .card-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            }
+
+            .card-body {
+            font-size: 16px;
+            overflow-wrap: break-word;
+            }
+
+            .custom-calendar {
+            flex: 1 1 50%;
+            height: auto;
+            box-sizing: border-box;
+            min-width: 500px;
+            }
+
+            .request-date {
+            flex: 1 1 40%;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0px 0px 8px #7b7b7b73;
+            border-radius: 10px;
+            background-color:#ede7fa5e;
+            }
+
+            input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            }
+            .line_text {
+            flex: 1;
+            height: 5px;
+            background-color: white;
+            margin: 0 -15px;
+            transition: background-color 0.3s;
+            }
+            .table-container {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            }
+            .selected-date-highlight {
+            background-color: #cce5ff !important; /* light blue background */
+            color: #004085 !important; /* darker text for visibility *
+            font-weight: bold !important;
+            transition: 0.3s ease-in-out;
+            text-align: center;
+            }
+
+            
+            </style>
+
+
+        
+
+
+            <section id="homes" class="hero">
+                    <div class="container">
+                        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                            <h1>Garage at Your Door – Book Pickup &amp; Service Online</h1>
+                            <p>Experience effortless Vehicle care. Select service, pick a time, and we’ll handle pickup and delivery.</p>
+                            <div class="hero-btns">
+                                <a href="#form2" class="btn btn-light btn-lg">Book A Slot</a>
+                                <!-- <a href="#services" class="btn btn-outline-light btn-lg">Our Services</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+
+
+            <div class="container mt-4">
+                <div id="multiStepForm">
+                   
+                    <form id="form2" action="/appointment_form2" method="post" enctype="multipart/form-data"
+                          class="form-step">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="request_date" t-att-value="selected_date"/>
+                        <input type="hidden" name="emp_id" t-att-value="emp_id"/>
+                        <input type="hidden" id="appointment_id" name="appointment_id"/>
+                        <t t-if="appointment">
+                           <script type="text/javascript">
+                                window.appointmentData = <t t-raw="json.dumps({
+                                    'id': appointment.id,
+                                    'name': appointment.name,
+                                    'location': appointment.location,
+                                    'image_url': appointment.image_1920 and '/web/image/dev.machine.service/' + str(appointment.id) + '/image_1920' or ''
+                                })"/>;
+                            </script>
+
+
+                        </t>
+
+                        <!-- <t t-if="appointment">
+                            <div style="
+                                        border: 1px solid #ddd;
+                                        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                                        padding: 30px;
+                                        border-radius: 10px;
+                                        background-color: #fff;
+                                        width: 98%;
+                                        max-width: 1200px;
+                                        margin: 20px auto;
+                                    ">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap">
+
+                                    <div class="d-flex align-items-center" style="gap: 15px;">
+                                        <button type="button"
+                                                style="
+                                                    padding: 10px;
+                                                    border: none;
+                                                    background-color: #f0f0f0;
+                                                    color: black;
+                                                    border-radius: 50%;
+                                                    cursor: pointer;
+                                                    font-size: 18px;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    width: 32px;
+                                                    height: 32px;
+                                                "
+                                                onclick="window.history.back();">
+                                            <i class="fa fa-arrow-left" />
+                                        </button>
+
+                                        <t t-if="appointment.image_1920">
+                                            <span t-field="appointment.image_1920"
+                                                  t-options='{"widget": "image"}'
+                                                  t-attf-style="width: 80px; height: 50px; object-fit: cover; border-radius: 8px;"/>
+                                        </t>
+
+                                        <div>
+                                            <p class="fw-bold" style="margin: 0 0 4px 0; font-size: 18px; color: #333;">
+                                                <t t-esc="appointment.name"/>
+                                            </p>
+                                            <p style="margin: 0; color: #aaa; font-size: 14px;">
+                                                <i class="fa fa-map-marker" style="margin-right: 5px;"></i>
+                                                <t t-esc="appointment.location"/>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                                                     <div style="display: flex; align-items: center;">
+                                        <div class="text-end" style="display: flex; flex-direction: column; gap: 4px;">
+                                            <p class="fw-bold mb-1" style="font-size: 16px; margin: 0;">Booking Info</p>
+                                            <div class="d-flex justify-content-end" style="gap: 20px;">
+                                                                                               <p style="margin: 0; font-size: 14px; color: #444;">
+                                                    <strong>Appointment Type:</strong>
+                                                    <t t-esc="dict(appointment._fields['appointment_type'].selection).get(appointment.appointment_type)"/>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </t> -->
+                        <t t-if="appointment">
+                            <div class="appointment-card card mb-4 p-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                        <!-- Left: Image + Name + Location -->
+                                        <div class="d-flex align-items-center gap-3">
+                                            <button type="button" class="btn btn-outline-secondary btn-circle" onclick="window.history.back();">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+
+                                            <t t-if="appointment.icon_image">
+                                                <div class="service-icon">
+                                                    <img t-att-src="'/dev_garage_management/static/src/img/' + appointment.icon_image"
+                                                        style="width:50px; height:50px;" />
+                                                </div>
+                                            </t>
+                                            <t t-elif="appointment.image_1920">
+                                                <div class="service-icon">
+                                                    <img t-att-src="image_data_uri(appointment.image_1920)"
+                                                        style="width:50px; height:50px;" />
+                                                </div>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="service-icon">
+                                                    <img src="/dev_garage_management/static/src/img/Breack Repair.png"
+                                                        style="width:50px; height:50px;" />
+                                                </div>
+                                            </t>
+
+                                            <div>
+                                                <h5 class="appointment-name mb-1"><t t-esc="appointment.name"/></h5>
+                                                <p class="appointment-location text-muted mb-0">
+                                                    <i class="fa fa-map-marker me-1"></i>
+                                                    <t t-esc="appointment.location"/>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Right: Booking Info -->
+                                        <div class="booking-info">
+                                            <h6 class="info-title mb-2">Booking Info</h6>
+                                            <div class="d-flex gap-3">
+                                                <p class="info-detail mb-0">
+                                                    <strong>Appointment Type:</strong>
+                                                    <t t-esc="dict(appointment._fields['appointment_type'].selection).get(appointment.appointment_type)"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+
+                        <t t-if="users">
+                            <div class="form-group" style="margin-top: 20px;margin-bottom: 20px;width:50%;" >
+                                <label for="user_id">Select Dentist
+                                </label>
+                                <select name="user_id" id="user_id" class="form-control" required="1">
+                                    <option value="" selected="" disabled="">--Select--</option>
+                                    <t t-foreach="users" t-as="user">
+                                        <option t-att-value="user.id">
+                                            <t t-esc="user.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                        </t>
+
+
+                        <div class="form-step-inner mb-5">
+                            <div class="calendar-container">
+                                <div id='calendar' class="custom-calendar custom-service"></div>
+                            </div>
+                            <div class="time-slots-container request-date ">
+                                <input type="date" id="request_date" name="request_date"
+                                       class="form-control custom-calendar"
+                                       style="width: 100px;margin-top:10px;display: none;" required="1"/>
+
+                                <input type="hidden"  name="selected_slot_id" id="selected_slot_id"/>
+                                <input type="hidden" id="abc" name="appointment_id"/>
+                                <div class="table-container ">
+                                    <div class="time-column"></div>
+                                    <div class="time-column"></div>
+                                    <div class="time-column"></div>
+                                    <div class="time-column"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet"/>
+            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+
+            <style>
+                .fc-past-readonly {
+                background-color: #f0f0f0;
+                color: #999 !important;
+                pointer-events: none;
+                cursor: not-allowed;
+                opacity: 0.6;
+                }
+
+            </style>
+
+            <script type="text/javascript">
+                <![CDATA[
+                document.addEventListener('DOMContentLoaded', function () {
+                    var calendarEl = document.getElementById('calendar');
+                    var previouslySelected = null;
+
+                    function markPastDatesReadonly() {
+                        var today = new Date();
+                        today.setHours(0, 0, 0, 0);
+
+                        document.querySelectorAll('[data-date]').forEach(function (cell) {
+                            var cellDate = new Date(cell.getAttribute('data-date'));
+                            if (cellDate < today) {
+                                cell.classList.add('fc-past-readonly');
+                                cell.setAttribute('title', 'Unavailable');
+                            }
+                        });
+                    }
+
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'dayGridMonth',
+                        dateClick: function (info) {
+                            var clickedDate = new Date(info.dateStr);
+                            var today = new Date();
+                            today.setHours(0, 0, 0, 0);
+
+                            if (clickedDate < today) {
+                                return;
+                            }
+
+                            if (previouslySelected) {
+                                var oldCell = document.querySelector('[data-date="' + previouslySelected + '"]');
+                                if (oldCell) {
+                                    oldCell.classList.remove('selected-date-highlight');
+                                }
+                            }
+
+                            var newCell = document.querySelector('[data-date="' + info.dateStr + '"]');
+                            if (newCell) {
+                                newCell.classList.add('selected-date-highlight');
+                            }
+
+                            previouslySelected = info.dateStr;
+                            $('#request_date').val(info.dateStr).trigger('change');
+                        },
+                        eventClick: function (info) {
+                            $('#request_date').val(info.event.startStr).trigger('change');
+                        },
+                        datesSet: function () {
+                            // Runs every time view or date range changes (month navigation, etc.)
+                            setTimeout(markPastDatesReadonly, 0);
+                        }
+                    });
+
+                    calendar.render();
+                });
+                ]]>
+            </script>
+
+
+        </t>
+    </template>
+
+    <template id="website_appointment_requests_form3" name="Appointment Request Form"
+              customize_show="True">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+        <t t-call="website.layout">
+            
+                
+        <style>
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+		    .containers {
+		        display: flex;
+		        align-items: center;
+		        justify-content: center;
+		        position: relative;
+
+		    }
+
+		    .circle-container {
+		        display: flex;
+		        align-items: center;
+		        position: relative;
+		        width: 100%;
+		    }
+
+		    .circle {
+		        display: flex;
+		        justify-content: center;
+		        align-items: center;
+		        width: 30px;
+		        height: 30px;
+		        border-radius: 50%;
+		        background-color: black; 
+		        color: white;
+		        font-size: 20px; 
+		        font-weight: normal;
+		        transition: background-color 0.3s, color 0.3s; 
+		        position: relative;
+		        z-index: 1; 
+		    }
+
+		    .circle_3 {
+		         display: flex;
+		        justify-content: center;
+		        align-items: center;
+		        width: 30px;
+		        height: 30px;
+		        border-radius: 50%;
+		        background-color: black; 
+		        color: white;
+		        font-size: 20px; 
+		        font-weight: normal;
+		        transition: background-color 0.3s, color 0.3s; 
+		        position: relative;
+		        z-index: 1; 
+		    }
+
+
+		    .line_1 {
+		        flex: 1;
+		        height: 5px; 
+		        background-color: black; 
+		        margin: 0 -15px; 
+		        transition: background-color 0.3s; 
+		    }
+
+		    .line {
+		        flex: 1;
+		        height: 5px; 
+		        background-color: black; 
+		        margin: 0 -15px; 
+		        transition: background-color 0.3s; 
+		    }
+
+		    .text {
+		        margin-top: 10px;
+		        font-size: 18px;
+		        font-weight: normal; 
+		        color: lightgray; 
+		        text-align: center;
+		    }
+		     .circle_text_details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 40px;
+            background-color: white; 
+            color: black;
+            font-size: 15px; 
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s; 
+            position: relative;
+            z-index: 1; 
+		    }
+		    .line_text {
+		        flex: 1;
+		        height: 5px; 
+		        background-color: white; 
+		        margin: 0 -15px; 
+		        transition: background-color 0.3s; 
+		    }
+		    .btn_1 {
+			background-image: linear-gradient(45deg, #007bff, #00c6ff); /* Gradient from blue to light blue */
+			border: none; /* Remove border */
+			color: white; /* Text color */
+			padding: 10px 20px; /* Padding for the button */
+			font-size: 16px; /* Font size */
+			border-radius: 5px; /* Rounded corners */
+			transition: background-image 0.3s, transform 0.3s; /* Transition effects */
+            }
+
+            .btn_1:hover {
+                background-image: linear-gradient(45deg, #0056b3, #00aaff); /* Darker gradient on hover */
+                transform: scale(1.05); /* Slightly enlarge on hover */
+            }
+            
+            .form-step {
+                font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            }
+            
+            .form-control, .form-select {
+                padding: 12px;
+                border-radius: 8px;
+                border: 1px solid #dee2e6;
+                transition: all 0.3s;
+            }
+            
+            .form-control:focus, .form-select:focus {
+                border-color: #86b7fe;
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+            
+            <!-- .btn-primary {
+                background-color: #0d6efd;
+                border: none;
+                padding: 12px 24px;
+                font-weight: 500;
+                transition: all 0.3s;
+            }
+            
+            .btn-primary:hover {
+                background-color: #0b5ed7;
+                transform: translateY(-2px);
+            } -->
+            
+            .form-label {
+                font-weight: 500;
+                margin-bottom: 8px;
+            }
+            
+            .bg-light {
+                background-color: #f8f9fa !important;
+            }
+            
+            @media (max-width: 992px) {
+                .border-end {
+                    border-right: none !important;
+                    border-bottom: 1px solid #dee2e6;
+                }
+            }
+
+            .overlay-container {
+                position: relative;
+                color: white;
+            }
+
+            .overlay-container .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.39); /* Adjust transparency here */
+                z-index: 1;
+                border-radius: inherit;
+            }
+
+            .overlay-container .position-relative {
+                z-index: 2;
+                position: relative;
+            }
+
+            /* Hero Section */
+                .hero {
+                    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('dev_garage_management/static/src/img/worker-follows-car-checklist-fixing-tires.jpg') center/cover no-repeat;
+                    color: white;
+                    padding: 180px 0 120px;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                }
+                
+                                
+                
+                .hero-content {
+                    position: relative;
+                    z-index: 2;
+                }
+                
+                .hero h1 {
+                    font-size: 3.5rem;
+                    font-weight: 700;
+                    margin-bottom: 25px;
+                    line-height: 1.2;
+                    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                }
+                
+                .hero p {
+                    font-size: 1.35rem;
+                    max-width: 700px;
+                    margin: 0 auto 40px;
+                    opacity: 0.9;
+                }
+                
+                .hero-btns .btn {
+                    margin: 0 10px;
+                    padding: 12px 30px;
+                    font-weight: 500;
+                    border-radius: 50px;
+                }
+                
+                .hero-btns .btn-light {
+                    background-color: white;
+                    color: #2a7fba;
+                }
+                
+                .hero-btns .btn-light:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 0px 10px rgba(255, 255, 255, 1);
+                    background-color:white;
+                    color: #2a7fba;
+                }
+                
+                .hero-btns .btn-outline-light {
+                    border-width: 2px;
+                }
+                
+                
+        </style>
+            
+                    
+                    <section id="home" class="hero">
+                        <div class="container">
+                            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                                <h1>Your Garage Visit — Now Comes to You</h1>
+                                <p>Skip the wait. Book service with doorstep pickup, fill in vehicle details, and enjoy smooth, stress-free servicing.</p>
+                                <div class="hero-btns">
+                                    <a href="#form3" class="btn btn-light btn-lg">Proceed to Details</a>
+                                    <!-- <a href="#services" class="btn btn-outline-light btn-lg">Our Services</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                   
+                    <div class="container mt-4">
+                <div id="multiStepForm">
+                    <form id="form3" action="/appointment_form3" method="post" enctype="multipart/form-data" class="form-step">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="request_date" t-att-value="request_date"/>
+                        <input type="hidden" name="appointment_id" id="appointment_id" t-att-value="appointment_id"/>
+                        <input type="hidden" name="appointment_name" id="appointment_name" t-att-value="appointment_name"/>
+                        <input type="hidden" name="selected_slot_id" t-att-value="slot_details"/>
+                        <input type="hidden" name="user_timezone" t-att-value="user_timezone"/>
+                        <input type="hidden" name="selected_user_id" t-att-value="selected_user_id"/>
+
+                        <!-- Booking Details Section -->
+                        <div class="container-fluid p-4 mb-4 bg-light rounded-4 shadow-sm">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <a href="/garage_appointment"
+                                    class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center"
+                                    style="width: 42px; height: 42px;">
+                                        <i class="fa fa-arrow-left"></i>
+                                    </a>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <t t-if="appointment.icon_image">
+                                                <div class="service-icon">
+                                                    <img t-att-src="'/dev_garage_management/static/src/img/' + appointment.icon_image"
+                                                        style="width:50px; height:50px;" />
+                                                </div>
+                                            </t>
+                                            <t t-elif="appointment.image_1920">
+                                                <div class="service-icon">
+                                                    <img t-att-src="image_data_uri(appointment.image_1920)"
+                                                        style="width:50px; height:50px;" />
+                                                </div>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="service-icon">
+                                                    <img src="/dev_garage_management/static/src/img/Breack Repair.png"
+                                                        style="width:50px; height:50px;" />
+                                                </div>
+                                            </t>
+                                        <div>
+                                            <h5 class="mb-1 fw-bold"><t t-esc="appointment_name"/></h5>
+                                            <span class="text-muted small">
+                                                <i class="fa fa-map-marker me-1"></i>
+                                                <t t-esc="appointment_location"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2">
+                                            <p class="mb-1 small text-muted">Appointment Type</p>
+                                            <p class="mb-0 fw-semibold"><t t-esc="appointment_type"/></p>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <p class="mb-1 small text-muted">Date</p>
+                                            <p class="mb-0 fw-semibold">
+                                                <t t-if="request_date">
+                                                    <t t-esc="request_date"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <span t-esc="datetime.datetime.now().strftime('%A, %d %B %Y')"/>
+                                                </t>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="mb-1 small text-muted">Time</p>
+                                            <p class="mb-0 fw-semibold"><t t-esc="selected_slot_name"/></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="mb-1 small text-muted">Time Zone</p>
+                                            <p class="mb-0 fw-semibold"><t t-esc="user_timezone"/></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enter Your Details Form -->
+                        <div class="container-fluid p-4 bg-white rounded-4 shadow-lg">
+                            <h4 class="mb-4 fw-bold">Enter Your Details</h4>
+                            <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="Customer_type" class="form-label">Customer Type <span class="text-danger">*</span></label>
+                                <select id="Customer_type" name="customer_type" class="form-select" required="1">
+                                    <option value="new">New Customer</option>
+                                    <option value="existing">Existing Customer</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="contact_name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="contact_name" name="contact_name" 
+                                    placeholder="Enter your full name" required="1"></input>
+                            </div>
+                        </div>
+
+                            
+                            <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" 
+                                    placeholder="Enter your email" required="1"></input>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="mobile" class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="mobile" name="mobile" 
+                                    placeholder="Enter your mobile number" required="1"></input>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="vehicle_model" class="vehicle_model">Vehicle Model <span class="text-danger">*</span></label>
+                                    <select name="vehicle_type" id="vehicle_type" class="form-select">
+                                        <t t-foreach="vehicle_model_id or []" t-as="vehicle_model_no">
+                                                <option t-att-value="vehicle_model_no.id">
+                                                    <t t-esc="vehicle_model_no.brand_id.name" />/<t t-esc="vehicle_model_no.name" />
+                                                </option>
+                                            </t>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="service_type" class="form-label">Service Type <span class="text-danger">*</span></label>
+                                    <select name="service_type" id="service_type" class="form-select">
+                                        <t t-foreach="service_type or []" t-as="service">
+                                                <option t-att-value="service.id">
+                                                    <t t-esc="service.name" />
+                                                </option>
+                                            </t>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="issue" class="form-label">Repair Issue <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="issue" name="issue" required="1"></input>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="damage" class="form-label">List Of Damage</label>
+                                    <input type="text" class="form-control" id="damge" name="damage" required="1"></input>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="reason" class="form-label">
+                                    Reason For Repair In Details <small class="text-muted">(Optional)</small>
+                                </label>
+                                <textarea class="form-control" id="reason" name="reason" rows="3" 
+                                        placeholder="Please share anything that could help us prepare for your appointment"></textarea>
+                            </div>
+
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="submit" class="btn  btn-lg fw-bold px-4 py-3 text-white" style="background-color:#3D85BA;">
+                                    Confirm Pickup
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="website_appointment_request_thank_you" name="Order Sucess" customize_show="True">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_1"/>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-6 mr-lg-auto oe_structure">
+                            <section class="pt40 s_text_block pb40 o_colored_level o_cc o_cc1"
+                                     data-snippet="s_text_block" data-name="Text">
+                                <div class="container">
+                                    <span class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary"/>
+                                    <br/>
+                                    <h1 class="text-center">Thank You!</h1>
+                                    <div class="pb16 pt16 s_hr" data-snippet="s_hr" data-name="Separator">
+                                        <hr class="mx-auto border-top w-50 border-dark text-center"/>
+                                    </div>
+                                    <h5 class="text-center">
+                                        <span class="fa fa-check-circle"/>
+                                        <span>Your Appointment has been create
+                                            <b>successfully</b>
+                                            <br/>
+                                            Request
+                                            Number is
+                                            <b>
+                                                <t t-esc="reference_number"/>
+                                            </b>
+                                        </span>
+                                    </h5>
+                                    <p class="text-center">We will get back to you shortly.</p>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-4">
+                            <ul class="list-unstyled mb-0 pl-2">
+                                <li>
+                                    <h3>
+                                        <span t-field="dev_company.name"/>
+                                    </h3>
+                                </li>
+                                <li>
+                                    <i class="fa fa-map-marker fa-fw mr-2"/>
+                                    <span class="o_force_ltr">
+                                        <span t-field="dev_company.street"/>
+                                        <t t-if="dev_company.street2">,
+                                            <span t-field="dev_company.street2"/>
+                                        </t>
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone fa-fw mr-2"/>
+                                    <span class="o_force_ltr">
+                                        <span t-field="dev_company.phone"/>
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-1x fa-fw fa-envelope mr-2"/>
+                                    <span t-field="dev_company.email"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_2"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

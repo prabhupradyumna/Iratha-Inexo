@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2018 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <template id="instruction_checklist_body_template">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <style>
+                    table .my_table{
+                        width:100%;
+                        font-size:25px;
+                    }
+                    .my_table td{
+                        padding:10px;
+                    }
+                </style>
+
+                <h2 style="font-weight: bold;text-align:center;color:black;">
+                    <span >Job Card # </span>
+                    <span t-field="o.name"></span>
+                </h2>
+
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-12">
+                    <table width="100%" style="margin-top: 20px;">
+                        <tr  style="line-height: 20px;margin-top: 20px;font-size:18px;">
+                            <td width="9%">
+                                <b>Customer</b>
+                            </td>
+                            <td width="4%">:</td>
+                            <td width="35%">
+                                <span t-field="o.customer_id"/>
+                            </td>
+                        </tr>
+                        <tr style="line-height: 20px;font-size:18px;margin-top:10px;padding-top:10px;">
+                            <td width="9%">
+                                <b>Request Date</b>
+                            </td>
+                            <td width="4%">:</td>
+                            <td width="30%">
+                                <span t-field="o.request_date" t-options='{"format": "dd/MM/yyyy"}'/>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table width="100%" style="page-break-inside: avoid"  >
+                            <thead>
+                                <tr style="margin-bottom: 5px;margin-top: 20px;color:black;">
+                                    <th class="text-left" style="text-align:left;" colspan="5"><br/><br/>
+                                        <h4>Inspection Checklist</h4>
+                                    </th>
+                                </tr>
+                                <tr style="margin-top:20px;margin-bottom:20px;font-size:23px;">
+                                    <th style="width:80%;border:1px solid black;text-align:left;color:black;padding-left:10px;">Inspection</th>
+                                    <th style="width:20%;text-align:center;border:1px solid black;color:black;">Checked</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.instruction_lines" t-as="line" style="page-break-inside: avoid;font-size:20px;" >
+                                    <td class="text-left" style="border:1px solid black;padding-left:10px;">
+                                        <span t-field="line.instruction_id"/>
+                                    </td>
+
+                                    <td style="text-align:center;border:1px solid black;padding-bottom:5px;padding-top:10px; display: flex; justify-content: center; align-items: center;">
+                                        <i class="fa fa-square-o" style="font-size:30px;" ></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12" >
+                        <br/><br/>
+                        <h4 style="color: black; font-family: Arial, sans-serif; font-weight: bold;">
+                                <span style="border-bottom: 1px solid black; padding-bottom: 5px;">Notes</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="instruction_checklist_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="dev_garage_management.instruction_checklist_body_template"/>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+
+    <template id="repair_request_form" name="Repair Request" customize_show="True">
+        <t t-call="website.layout">
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-lg-2 col-12"></div>
+                    <div class="col-lg-8 col-12">
+                        <div class="card mx-auto">
+                            <div class="card-header text-center">
+                                <h2>Repair/Service Request</h2>
+                            </div>
+
+                            <div class="card-body p-4">
+                                <form action="/repair_request"
+                                    method="post"
+                                    enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <input type="hidden" name="csrf_token"
+                                            t-att-value="request.csrf_token()" />
+                                    </div>
+                                    <div class="form-group mt-2" style="margin-bottom:20px;">
+                                        <h4 style="color: #007bff; font-family: Arial, sans-serif; font-weight: bold;">
+                                        <span style="border-bottom: 2px solid #007bff; padding-bottom: 5px;">Personal Information</span>
+                                    </h4>
+                                    </div>
+                                    <div style="margin-top:20px;" class="form-group mt-2">
+                                        <label for="contact_name">Contact Name</label>
+                                        <span class="text-danger"> *</span>
+                                        <input type="text" class="form-control"
+                                            id="contact_name" name="contact_name"
+                                            placeholder="Enter Your Name"
+                                            required="1"
+                                        > </input>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="email">Email</label>
+                                        <span class="text-danger"> *</span>
+                                        <input type="email" class="form-control" id="email"
+                                            name="email"
+                                            required="1"
+                                            placeholder="mitchell@odoo.com"> </input>
+                                    </div>
+                                    <div class="form-group mt-2" style="margin-bottom:20px;">
+                                        <label for="phone">Phone</label>
+                                        <span class="text-danger"> *</span>
+                                        <input type="text" class="form-control" id="phone"
+                                            name="phone"
+                                            required="1"
+                                            placeholder="+91 93283 65893"> </input>
+                                    </div>
+                                    <div class="form-group mt-2" style="margin-bottom:20px;margin-top:30px;">
+                                        <h4 style="color: #007bff; font-family: Arial, sans-serif; font-weight: bold;">
+                                            <span style="border-bottom: 2px solid #007bff; padding-bottom: 5px;">Vehicle Repair Information</span>
+                                        </h4>
+                                    </div>
+<!--                                    <div class="form-group mt-2">-->
+<!--                                        <label for="vehicle_name">Vehicle Name</label>-->
+<!--                                        <span class="text-danger"> *</span>-->
+<!--                                        <input type="text" class="form-control"-->
+<!--                                            id="vehicle_name" name="vehicle_name"-->
+<!--                                            placeholder="Enter Vehicle Name"-->
+<!--                                            required="1"-->
+<!--                                        > </input>-->
+<!--                                    </div>-->
+                                    <div class="form-group mt-2">
+                                        <label for="room_type">Vehicle Model</label>
+                                        <span class="text-danger"> *</span>
+                                        <select class="form-select" id="service_type"
+                                            required="1"
+                                            aria-label="Vehicle Model" name="vehicle_model">
+                                            <t t-foreach="vehicle_model_ids or []"
+                                                t-as="vehicle_model_no">
+                                                <option t-att-value="vehicle_model_no.id">
+                                                    <t t-esc="vehicle_model_no.brand_id.name" />/<t t-esc="vehicle_model_no.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="room_type">Service Type</label>
+                                        <span class="text-danger"> *</span>
+                                        <select class="form-select" id="service_type"
+                                            required="1"
+                                            aria-label="Service Type" name="service_type">
+                                            <t t-foreach="service_type_ids or []"
+                                                t-as="service_type_no">
+                                                <option t-att-value="service_type_no.id">
+                                                    <t t-esc="service_type_no.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="room_type">Service</label>
+                                        <span class="text-danger"> *</span>
+                                        <select class="form-select" id="service"
+                                            required="1"
+                                            aria-label="Service" name="service">
+                                            <t t-foreach="service_ids or []"
+                                                t-as="service_no">
+                                                <option t-att-value="service_no.id">
+                                                    <t t-esc="service_no.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="vehicle_name">Repair Issue</label>
+                                        <input type="text" class="form-control"
+                                            id="repair_issue" name="repair_issue"
+                                        > </input>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="vehicle_name">Reason For Repair In Details</label>
+                                        <input type="text" class="form-control"
+                                            id="repair_reason" name="repair_reason"
+                                        > </input>
+                                    </div>
+                                    <div class="form-group mt-2">
+                                        <label for="vehicle_name">List Of Damage</label>
+                                        <textarea class="form-control form-control-sm" id="demage" name="demage" ></textarea>
+                                    </div>
+<!--                                    <div class="form-group mt-2">-->
+<!--                                        <label for="room_type">Priority</label>-->
+<!--                                        <span class="text-danger"> *</span>-->
+<!--                                        <select class="form-control" id="type"-->
+<!--                                            required="1"-->
+<!--                                            aria-label="type" name="type" style="width: 50%;">-->
+<!--                                            <option value="">&#45;&#45;Select&#45;&#45;</option>-->
+<!--                                            <t t-foreach="type_type or []" t-as="type_t">-->
+<!--                                                <option t-att-value="type_t"  t-att-selected="type_t == int(type) if type else type_t== type_type"><t t-esc="type_t"/></option>-->
+<!--                                            </t>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+                                    <div class="d-grid">
+                                       <center><button type="submit" class="btn btn-primary mt-3">Submit</button></center>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-12"></div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="repair_request_submitted_greeting" name="Request Submitted" customize_show="True">
+        <t t-call="website.layout">
+            <div class="oe_structure" />
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-lg-2 col-12"></div>
+                    <div class="col-lg-8 col-12">
+                        <section class="pt40 s_text_block pb40 o_colored_level o_cc o_cc1"
+                            data-snippet="s_text_block" data-name="Text">
+                            <div class="container">
+                                <span
+                                    class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary" />
+                                <br />
+                                <h1 class="text-center">Thank You!</h1>
+                                <div class="pb16 pt16 s_hr" data-snippet="s_hr"
+                                    data-name="Separator">
+                                    <hr class="mx-auto border-top w-50 border-dark text-center" />
+                                </div>
+                                <h5 class="text-center">
+                                    <span class="fa fa-check-circle" />
+                                    <span>Your repair request is submitted successfully. <b>
+                                            <t t-esc="quotation_number" />
+                                        </b></span>
+                                </h5>
+                                <p class="text-center">We will get back to you shortly.</p>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-lg-2 col-12"></div>
+                </div>
+            </div>
+            <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_2" />
+        </t>
+    </template>
+</odoo>

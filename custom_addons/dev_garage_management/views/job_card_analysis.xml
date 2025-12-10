@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_job_card_analysis" model="ir.actions.act_window">
+        <field name="name">Job Card Analysis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dev.repair.request</field>
+        <field name="view_mode">pivot</field>
+    </record>
+
+    <menuitem name="Job Card Analysis"
+              id="menu_dev_garage_job_card_analysis"
+              parent="dev_garage_management.menu_dev_garage_reporting"
+              action="action_job_card_analysis"
+              sequence="1"/>
+
+</odoo>

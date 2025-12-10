@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    
+    <record id="view_project_task_diagnosys_form" model="ir.ui.view">
+         <field name="name">view.project.task.diagnosys.form</field>
+         <field name="model">project.task</field>
+         <field name="inherit_id" ref="project.view_task_form2"/>
+         <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_sale_order" type="object" class="oe_stat_button" icon="fa-usd" 
+                        invisible="sale_count == 0">
+                    <field string="Sales" name="sale_count" widget="statinfo"/>
+                </button>
+                <button name="action_view_all_purchase" type="object" class="oe_stat_button" icon="fa-truck"
+                        invisible="purchase_count == 0">
+                    <field string="Purchases" name="purchase_count" widget="statinfo"/>
+                </button>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <field name="sale_id" invisible="1"/>
+                <field name="purchase_id" invisible="1"/>
+                <button name="action_create_sale_order" type="object" string='Create Sale' class="oe_highlight"
+                        invisible="task_type != 'diagnosys' or sale_count != 0" groups="base.group_no_one"/>
+                <button name="%(dev_garage_management.action_dev_view_create_purchase)d" type="action" string='Create RFQ' class="oe_highlight"
+                        invisible="task_type != 'diagnosys' or sale_count != 0" groups="base.group_no_one"/>
+            </xpath>
+            <xpath expr="//page[@name='extra_info']//field[@name='date_last_stage_update']" position="after">
+                <field name="repair_request_id"  readonly="1" />
+                <field name="task_type" readonly="1" />
+                <field name="sale_id"/>
+                <field name="purchase_id"/>
+            </xpath>
+            <xpath expr="//page[@name='extra_info']" position="before">
+                <page string='Repair Estimation' invisible="task_type != 'diagnosys'" groups="base.group_no_one" >
+                    <field name="product_lines" context="{'default_repair_request_id':repair_request_id}"
+                           readonly="sale_count != 0">
+                        <list editable="bottom">
+                            <field name="product_id" domain="[('is_machine_part','=',True)]"/>
+                            <field name="name"/>
+                            <field name="quantity"/>
+                            <field name="uom_id"/>
+                            <field name="price" sum="price"/>
+                            <field name="repair_request_id" column_invisible="1"/>
+                        </list>
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                </group>
+                                <group>
+                                    <field name="quantity"/>
+                                    <field name="uom_id"/>
+                                    <field name="price"/>
+                                </group>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+         </field>
+    </record>
+    
+    <record id="view_project_task_workorder_timesheet_form" model="ir.ui.view">
+         <field name="name">view.project.task.workorder.timesheet.form</field>
+         <field name="model">project.task</field>
+         <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+         <field name="arch" type="xml">
+            <xpath expr="//field[@name='timesheet_ids']" position="attributes">
+                    <attribute name="context">{'default_project_id':project_id,
+                                       'default_name':'',
+                                       'default_repair_request_id':repair_request_id}</attribute>
+                    <attribute name="groups">base.group_no_one</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='timesheet_ids']//list//field[@name='project_id']" position="after">
+                <field name="repair_request_id" column_invisible="1"  />
+            </xpath>
+         </field>
+    </record>
+
+    <record id="view_project_task_search_inherit" model="ir.ui.view">
+         <field name="name">view.project.task.search.inherit</field>
+         <field name="model">project.task</field>
+         <field name="inherit_id" ref="project.view_task_search_form"/>
+         <field name="arch" type="xml">
+            <xpath expr="//filter[@name='stage']" position="after">
+                <filter string="Job Card" name="repair_request_id" context="{'group_by': 'repair_request_id'}"/>
+            </xpath>
+         </field>
+    </record>
+
+    <record id="action_garage_vehicle_diagnosis" model="ir.actions.act_window">
+        <field name="name">Vehicle Diagnosis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">project.task</field>
+        <field name="domain">[('task_type','=','diagnosys')]</field>
+        <field name="view_mode">kanban,list,form,activity</field>
+        <field name="help" type="html">
+             <p> Vehicle Diagnosis
+             </p>
+        </field>
+    </record>
+
+    <menuitem name="Vehicle Diagnosis"
+              id="menu_dev_garage_vehicle_diagnosis"
+              parent="dev_garage_management.menu_dev_machine_repair"
+              action="action_garage_vehicle_diagnosis"
+              sequence="2"/>
+
+    <record id="action_garage_vehicle_work_order" model="ir.actions.act_window">
+        <field name="name">Work Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">project.task</field>
+        <field name="domain">[('task_type','=','work_order')]</field>
+        <field name="view_mode">kanban,list,form,activity</field>
+        <field name="help" type="html">
+             <p> Work Orders
+             </p>
+        </field>
+    </record>
+
+    <menuitem name="Work Order"
+              id="menu_dev_garage_work_order"
+              parent="dev_garage_management.menu_dev_machine_repair"
+              action="action_garage_vehicle_work_order"
+              sequence="3"/>
+
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_garage_dashboard" model="ir.actions.client">
+            <field name="name">Garage Dashboard</field>
+            <field name="tag">garage_dashboard</field>
+        </record>
+
+        <menuitem
+            id="garage_dashboard_id"
+            name="Dashboard"
+            parent="dev_garage_management.menu_dev_repair_menu" sequence="-1" 
+            action="dev_garage_management.action_garage_dashboard"
+            />
+    </data>
+</odoo>
