@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Root Menu -->
+        <menuitem
+                id="gas_agency_menu_root"
+                name="Commercial Ledger"
+                sequence="10"/>
+
+        <!-- Ledger Menu -->
+        <menuitem
+                id="gas_agency_ledger_menu"
+                name="Ledger Entries"
+                parent="gas_agency_menu_root"
+                sequence="10"/>
+
+        <!-- Payment Menu -->
+        <menuitem
+                id="gas_agency_payment_menu"
+                name="Register Payment"
+                parent="gas_agency_menu_root"
+                action="gas_agency_payment_action"
+                sequence="20"/>
+    </data>
+</odoo>

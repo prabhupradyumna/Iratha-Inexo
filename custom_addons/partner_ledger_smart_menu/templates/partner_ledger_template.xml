@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--
+        <record id="view_partner_ledger_wizard_form" model="ir.ui.view">
+            <field name="name">partner.ledger.wizard.form</field>
+            <field name="model">partner.ledger.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Partner Ledger Report" create="false" edit="false">
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <button name="action_print_html"
+                                string="Generate Report"
+                                type="object"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    -->
+    <!-- Partner Ledger Report Template -->
+
+    <odoo>
+        <template id="report_partner_ledger_html">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+
+                            <!-- Company Header -->
+                            <div class="text-center mb-3">
+                                <h3 t-esc="doc.company_id.name"/>
+                                <p>
+                                    <t t-esc="doc.company_id.street or ''"/>
+                                    <t t-esc="doc.company_id.city or ''"/>
+                                </p>
+                                <p>
+                                    <t t-esc="doc.company_id.phone or ''"/>
+                                    <t t-esc="doc.company_id.email or ''"/>
+                                </p>
+                                <h4 class="mt-2">Partner Ledger</h4>
+                            </div>
+
+                            <!-- Partner Info -->
+                            <div class="mb-2">
+                                <p>
+                                    <strong>Partner:</strong>
+                                    <t t-esc="doc.partner_id.name"/>
+                                </p>
+                                <p>
+                                    <strong>Period:</strong>
+                                    <t t-esc="doc.start_date"/>
+                                    to
+                                    <t t-esc="doc.end_date"/>
+                                </p>
+                            </div>
+
+                            <!-- Ledger Table with Enhanced Borders -->
+                            <table class="table table-sm"
+                                   style="width:100%; border: 1px solid #000; border-collapse: collapse;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid #000; padding: 8px;">Date</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Voucher No</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Type</th>
+                                        <th style="border: 1px solid #000; padding: 8px; text-align: right;">Debit</th>
+                                        <th style="border: 1px solid #000; padding: 8px; text-align: right;">Credit</th>
+                                        <th style="border: 1px solid #000; padding: 8px; text-align: right;">Balance
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="doc.get_ledger_lines()" t-as="line">
+                                        <tr t-attf-class="#{ 'fw-bold' if line['type'] in ('Opening Balance', 'Total') else '' }">
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="line['date']"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="line['voucher_no']"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="line['type']"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px; text-align: right;">
+                                                <t t-esc="'%.2f' % line['debit']"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px; text-align: right;">
+                                                <t t-esc="'%.2f' % line['credit']"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px; text-align: right;">
+                                                <t t-esc="'%.2f' % line['balance']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </odoo>
+    <!-- PDF Report Definition -->
+
+</odoo>

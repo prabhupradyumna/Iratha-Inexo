@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_partner_kanban_inherit_ledger" model="ir.ui.view">
+        <field name="name">res.partner.kanban.inherit.ledger</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+        <field name="arch" type="xml">
+            <footer position="inside">
+                <div name="application_statistics" position="inside">
+                    <span class="badge bg-info rounded-pill smaller o_tag" title="Ledger Balance" style="margin-left: 5px;">
+                        <i class="fa fa-money me-1"></i>
+                        <field name="ledger_balance" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    </span>
+                </div>
+            </footer>
+        </field>
+    </record>
+
+<!--    List View  -->
+   <record id="res_partner_list_inherit_ledger" model="ir.ui.view">
+    <field name="name">res.partner.list.inherit.ledger</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+        <field name="country_id" position="after">
+            <field name="ledger_balance" widget="monetary"
+                    options="{'currency_field': 'currency_id'}"
+                    string="Balance"/>
+        </field>
+    </field>
+</record>
+</odoo>

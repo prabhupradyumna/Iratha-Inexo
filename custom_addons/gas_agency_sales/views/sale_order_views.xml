@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_order_form_inherit_gas_agency" model="ir.ui.view">
+        <field name="name">sale.order.form.gas.agency</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook/page[@name='order_lines']//field[@name='price_subtotal']" position="before">
+
+                <field name="x_empty_product_id"/>
+                <field name="x_empty_qty"/>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

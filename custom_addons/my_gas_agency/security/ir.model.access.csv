@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gas_agency_payment,access.gas.agency.payment,model_gas_agency_payment,base.group_user,1,1,1,1
+access_gas_agency_ledger,access.gas.agency.ledger,model_gas_agency_ledger,base.group_user,1,0,0,0
