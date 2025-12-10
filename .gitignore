@@ -101,7 +101,6 @@ setup/win32/static/postgresql*.exe
 
 # js tooling (odoo specific - note: package.json and package-lock.json are kept for Next.js)
 jsconfig.json
-tsconfig.json
 .husky
 #Ignore odoo backend source code
 /odoo-19.0
